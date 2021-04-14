@@ -27,7 +27,7 @@ public class CartAddContoller { // 상품 보기에서 결재 or 장바구니 클릭시 이동
 	@RequestMapping(value = command, method = RequestMethod.GET)
 	public String doAction(HttpSession session, @RequestParam("num") int num, HttpServletRequest request) {
 		if(session.getAttribute("loginInfo") == null) {
-			session.setAttribute("destination", "redirect:/detail.ex?num="+num);
+			session.setAttribute("destination", "redirect:/userExhibitDetail.ex?num="+num);
 			return "redirect:/loginForm.me";
 		} else {
 			Exhibition exhi = edao.DetailExhibition(num);
@@ -42,7 +42,7 @@ public class CartAddContoller { // 상품 보기에서 결재 or 장바구니 클릭시 이동
 				HttpServletRequest request
 			){		
 		if(session.getAttribute("loginInfo") == null) {
-			session.setAttribute("destination", "redirect:/detail.ex?num="+od.getPnum());
+			session.setAttribute("destination", "redirect:/userExhibitDetail.ex?num="+od.getPnum());
 			return "redirect:/loginForm.me";
 		} else {
 			//if(result.hasErrors()) { -> 오류가 남...
