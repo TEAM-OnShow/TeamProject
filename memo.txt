@@ -14,7 +14,7 @@ nocache;
 drop table members cascade constraints;
 create table members(
 	num number primary key,
-	id varchar2(20),
+	id varchar2(20) unique,
 	password varchar2(20),
 	repassword varchar2(20),
 	name varchar2(20),
