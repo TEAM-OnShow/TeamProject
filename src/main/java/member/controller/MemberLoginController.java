@@ -18,10 +18,9 @@ import member.model.MemberDao;
 
 @Controller
 public class MemberLoginController {
+	
 	private final String command = "/loginForm.me";
 	private final String getPage = "memberLoginForm";
-	private final String adminPage = "./../../main";
-	private final String userPage = "./../../user";
 	
 	@Autowired
 	private MemberDao memberDao;
@@ -60,15 +59,8 @@ public class MemberLoginController {
 				session.setAttribute("loginInfo", member);
 				session.setAttribute("loginId", member.getId());
 				
-				if(id.equals("penguin")) {
-					mav.setViewName(adminPage);
-				}
-				else {
-					mav.setViewName(userPage);
-//				String destination = (String)session.getAttribute("destination");
-//				mav.setViewName(destination);
-			
-				}
+				String destination = (String)session.getAttribute("destination");
+				mav.setViewName(destination);
 			}	
 			else {//비번 불일치
 				pw.print("<script type='text/javascript'>");
