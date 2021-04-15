@@ -14,7 +14,7 @@ nocache;
 drop table members cascade constraints;
 create table members(
 	num number primary key,
-	id varchar2(20) unique,
+	id varchar2(20) unique,	-- 겹치지않게 하여 정보 찾을 때 사용 필요
 	password varchar2(20),
 	repassword varchar2(20),
 	name varchar2(20),
@@ -25,10 +25,10 @@ create table members(
 	hp1 number,
 	hp2 number,
 	hp3 number,
-	add1 varchar2(20),
-	add2 varchar2(20),
-	style varchar2(20),
-	cat varchar2(20),
+	add1 varchar2(100),
+	add2 varchar2(100),
+	style varchar2(100), -- 취향 다수 선택 가능
+	cat varchar2(100), -- 관심 카테고리 다수 선택 가능
 	age number,
 	gender varchar2(20)
 );
