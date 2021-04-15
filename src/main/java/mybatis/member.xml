@@ -6,11 +6,30 @@
 <mapper namespace="member.model.Member">
 	<insert id="InsertMember">
 		insert into members(num, id, password, repassword, name, year, month, day, email, hp1, hp2, hp3, add1, add2, style, cat, age, gender)
-		values(#{num},#{id},#{password},#{repassword},#{name},#{year},#{month},#{day},#{email},#{hp1},#{hp2},#{hp3},#{add1},#{add2},#{style},#{cat},#{age},#{gender})
+		values(mseq.nextval,#{id},#{password},#{repassword},#{name},#{year},#{month},#{day},#{email},#{hp1},#{hp2},#{hp3},#{add1},#{add2},#{style, jdbcType=VARCHAR},#{cat, jdbcType=VARCHAR},#{age, jdbcType=INTEGER},#{gender, jdbcType=VARCHAR})
 	</insert>
 	
 	<select id ="GetData" resultType = "MyMember">
 		select * from members
 		where id = #{id}
 	</select>	
+	
+	<update id = "UpdateMember">
+		update members set
+		password=#{password}, year=#{year}, month=#{month}, day=#{day}, email=#{email}, 
+		hp1=#{hp1}, hp2=#{hp2}, hp3=#{hp3}, add1=#{add1}, add2=#{add2}, style=#{style}, 
+		cat=#{cat}, age=#{age}, gender=#{gender}
+		where num=#{num}
+	</update>
+	
+	<select id = "FindId" resultType = "MyMember">
+		select id from members
+		where email=#{email} and name=#{name} and hp1=#{hp1} and hp2=#{hp2} and hp3=#{hp3}
+	</select>
+	
+	<select id = "FindPw" resultType = "MyMember">
+		select password from members
+		where id=#{id} and name=#{name} and email=#{email}
+	</select>
+	
 </mapper>	

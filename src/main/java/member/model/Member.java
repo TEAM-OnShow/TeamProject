@@ -48,15 +48,6 @@ public class Member {
 		super();
 	}
 
-	public Member(String name, String email, Integer hp1, Integer hp2, Integer hp3) {
-		super();
-		this.name = name;
-		this.email = email;
-		this.hp1 = hp1;
-		this.hp2 = hp2;
-		this.hp3 = hp3;
-	}
-
 	public Member(int num, String id, String password, String repassword, String name, String year, String month,
 			String day, String email, Integer hp1, Integer hp2, Integer hp3, String add1, String add2, String style,
 			String cat, Integer age, String gender) {

@@ -21,7 +21,6 @@
 </style>
 
 <div class="container">
-	<%=styleArr[0]%>
 	<h3 align=center style="padding:20px 0">회원가입</h3>
 	<form:form commandName="member" method="post" action="registerForm.me">
 		<table border=1 class="table table-secondary">
@@ -51,6 +50,19 @@
 				<td>
 					<input type="text" name="name" class="form-control" value="${ member.name }">
 					<form:errors cssClass="err" path="name"/>
+				</td>
+			</tr>
+			<tr>
+				<th class="table-primary"><label for="gender">성별</label></th>
+				<td>
+					<input type="radio" name="gender" value="남자"> 남자
+					<input type="radio" name="gender" value="여자"> 여자
+				</td>
+			</tr>
+			<tr>
+				<th class="table-primary"><label for="age">나이</label></th>
+				<td>
+					<input type="text" name="age" class="form-control">
 				</td>
 			</tr>
 			<tr>
@@ -91,7 +103,10 @@
 					-
 					<input type="text" name="hp2" class="form-control w20" value="${ member.hp2 }">
 					-
-					<input type="text" name="hp3" class="form-control w20" value="${ member.hp3 }">
+					<input type="text" name="hp3" class="form-control w20" value="${ member.hp3 }"><br>
+					<form:errors cssClass="err" path="hp1"/><br>
+					<form:errors cssClass="err" path="hp2"/><br>
+					<form:errors cssClass="err" path="hp3"/>
 				</td>
 			</tr>
 			<tr>
@@ -122,8 +137,8 @@
 					</c:if>
 					<c:if test="${ fn:length(clist) > 0 }">
 						<c:forEach var="cat" items="${ clist }">
-							<input type="checkbox" name="cat" value="${ cat.num }" 
-							<c:if test="${ fn:contains(member.cat,cat) }">checked</c:if>
+							<input type="checkbox" name="cat" value="${ cat.kind }" 
+							<c:if test="${ fn:contains(member.cat,cat.kind) }">checked</c:if>
 							> ${ cat.kind }
 						</c:forEach>
 					</c:if>
