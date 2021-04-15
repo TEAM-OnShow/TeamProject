@@ -22,7 +22,7 @@
 <div class="container">
 	<h3 align=center style="padding:20px 0">장바구니 내역</h3>
 	<table border=1 class="table-secondary">
-		<tr class="table-info">
+		<tr class="table-success">
 			<td colspan="5" align=center>
 				회원 정보 : ${ loginInfo.name }(${ loginInfo.id })
 			</td>
@@ -46,7 +46,7 @@
 		<tr>
 			<td colspan="4" align=center>
 				<a class="btn btn-primary" href="account.re">결재하기</a> &nbsp; &nbsp;
-				<a class="btn btn-info" href="userExhibit.ex">추가 주문</a>
+				<a class="btn btn-success" href="userExhibit.ex">추가 주문</a>
 			</td>
 			<td align=center><b>총 금액 : <fmt:formatNumber pattern="#,###">${ totalAmount }</fmt:formatNumber> 원</b></td>
 		</tr>

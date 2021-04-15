@@ -32,7 +32,7 @@
 	<table border=1>
 		<c:if test="${ loginInfo.num > 0 }">
 		<tr>
-			<td colspan=3 align=center class="table-info">
+			<td colspan=3 align=center class="table-success">
 				주문자 정보 : ${ loginInfo.name }(${ loginInfo.id })
 			</td>
 		</tr>
@@ -62,4 +62,9 @@
 		</c:forEach>
 	</table>
 	<%-- <input type="button" value="메인으로" onClick="location.href='<%=main%>'"> --%>
+	<div style="width: fit-content; margin: 0 auto;">
+		<ul class="pagination">
+			${ pageInfo.pagingHtml }
+		</ul>
+	</div>
 </div>

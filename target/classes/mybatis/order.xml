@@ -10,6 +10,7 @@
 		<if test="mid != 'penguin'">
 		where mid = #{mid}
 		</if>
+		order by onum desc
 	</select>
 
 	<insert id="InsertData">
@@ -19,6 +20,13 @@
 	
 	<select id="GetMaxOrderOnum" resultType="int">
 		select max(onum) from orders
+	</select>
+	
+	<select id="TotalCount" resultType="int">
+		select count(*) from orders
+		<if test="mid != 'penguin'">
+		where mid = #{mid}
+		</if>
 	</select>
 	
 </mapper>
