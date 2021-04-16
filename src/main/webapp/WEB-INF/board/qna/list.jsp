@@ -50,9 +50,6 @@
 <h2 class="mt-4">자주묻는질문</h2>
 <hr><br>
 	<% String [] categories = {"전체", "회원가입", "전시관련", "티켓구매/발권", "취소/환불", "기타"}; %>
-	
-	<!-- 테스트 하기 위해 임시로 설정해둔것 -->
-	<% session.setAttribute("loginId", "penguin"); %>
 
 	<!-- Qna 네비게이션 버튼 -->
 	<div class="" align="center">

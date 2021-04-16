@@ -12,21 +12,13 @@
 	<select id ="GetData" resultType = "MyMember">
 		select * from members
 		where id = #{id}
-	</select>
+	</select>	
 	
 	<select id="GetDataList" resultType="MyMember">
 		select * from members
-		<if test="whatColumn == 'id'">
-			where id like #{keyword}
+		<if test="whatColumn == 'all'">
+			where id like #{keyword} or name like #{keyword}
 		</if>
-		<if test="whatColumn == 'name'">
-			where name like #{keyword}
-		</if>
-		order by num asc
-	</select>
-	
-	<select id="GetDataList" resultType="MyMember">
-		select * from members
 		<if test="whatColumn == 'id'">
 			where id like #{keyword}
 		</if>
@@ -54,11 +46,7 @@
 		where id=#{id} and name=#{name} and email=#{email}
 	</select>
 	
-<<<<<<< HEAD
 		<delete id="DeleteData">
-=======
-	<delete id="DeleteData">
->>>>>>> c5dcf89fce4a7ec74b779e75fc2460738fab6f46
 		delete from members
 		where id= #{id}
 	</delete>

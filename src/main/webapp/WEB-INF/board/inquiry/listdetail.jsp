@@ -30,7 +30,8 @@
 <body class="container">
 	<!-- 상세게시글 보기 전 비밀번호 입력 -->
 	<script type="text/javascript">
-	if(!session.getAttribute("loginId").equals('penguin')){
+	var loginId = '<%=session.getAttribute("loginId")%>'
+	if(loginId != "penguin"){
 			var password = prompt("해당 게시물의 비밀번호를 입력하세요");
 			if(password!='${inq.pw}') {
 				alert("비밀번호가 맞지않습니다");
@@ -77,8 +78,6 @@
 	<div class="m-3" style="white-space:pre">${inq.content}</div>
 	<hr>
 	
-	<c:set value="penguin" var="loginId" scope="session"/>
-	<%-- <c:remove var="loginId" scope="session" /> --%>
 	<c:choose>
 		<c:when test="${inq.restep>0}">
 			<c:if test="${sessionScope.loginId=='penguin'}">

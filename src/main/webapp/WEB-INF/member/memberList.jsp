@@ -1,11 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
-<<<<<<< HEAD
 <%@include file="./../common/common.jsp"%>
-=======
-<%@include file="./../common/admin.jsp"%>
->>>>>>> c5dcf89fce4a7ec74b779e75fc2460738fab6f46
 회원 리스트 <br>
 <br>
 <h2 align="center">회원 리스트 화면</h2><br>

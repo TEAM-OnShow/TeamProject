@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import exhibition.model.Exhibition;
 import exhibition.model.ExhibitionDao;
@@ -20,11 +21,13 @@ public class ExhibitUserPlanController {
 	private final String gotoPage = "exhibitPlan";
 	
 	@RequestMapping(command)
-	public String doAction(Model model) {
+	public String doAction(@RequestParam(value="day")String day, Model model) {
 		
-		List<Exhibition> list = edao.ListExhibition();
+		System.out.println("day: " + day);
+		
+		List<Exhibition> list = edao.ListMonth(day); 
 		model.addAttribute("list", list);
-		
+		System.out.println("list: " + list);
 		return gotoPage;
 	}
 	

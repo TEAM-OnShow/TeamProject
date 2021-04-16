@@ -1,6 +1,20 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="common.jsp"%>
+
+<%
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM");
+	  
+	Calendar cal = Calendar.getInstance();
+	cal.add(Calendar.MONTH, 1);
+	
+	String day = sdf.format(cal.getTime());
+	
+	System.out.println(day);
+	//System.out.println(daym);
+%>
 
 <!-- 유저화면 상단 -->
 <div class="container" style="position:relative;">
@@ -42,7 +56,7 @@
 					role="button" aria-haspopup="true" aria-expanded="false">전시/박람</a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="userExhibit.ex">전시/박람목록</a> <a
-							class="dropdown-item" href="exhibitPlan.ex">전시/박람예정목록</a> <a
+							class="dropdown-item" href="exhibitPlan.ex?day=<%=day%>">전시/박람예정목록</a> <a
 							class="dropdown-item" href="#">예약방법</a>
 					</div>
 				</li>
@@ -53,7 +67,7 @@
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="info.me">내정보</a>
 						<a class="dropdown-item" href="order.re">구매내역</a>
-						<a class="dropdown-item" href="#">문의내역</a>
+						<a class="dropdown-item" href="">문의내역</a>
 					</div>
 				</li>
 

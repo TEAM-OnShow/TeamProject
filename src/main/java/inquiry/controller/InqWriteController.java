@@ -58,7 +58,6 @@ public class InqWriteController {
 			inq.setIp(ip);
 			
 			//아이디와 연결 시키기
-			session.setAttribute("loginId", "penguin"); //임시설정해놓음
 			String id = (String) session.getAttribute("loginId");
 			inq.setId(id);
 			

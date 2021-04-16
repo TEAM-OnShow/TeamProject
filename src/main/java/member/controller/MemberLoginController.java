@@ -18,10 +18,9 @@ import member.model.MemberDao;
 
 @Controller
 public class MemberLoginController {
+	
 	private final String command = "/loginForm.me";
 	private final String getPage = "memberLoginForm";
-	private final String adminPage = "./../../main";
-	private final String userPage = "./../../user";
 	
 	@Autowired
 	private MemberDao memberDao;
@@ -32,20 +31,21 @@ public class MemberLoginController {
 	}
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)
-	public ModelAndView doAction( HttpServletRequest request, 
-			HttpServletResponse response,
-			HttpSession session) throws IOException {
+	public ModelAndView doAction( 
+									HttpServletRequest request, 
+									HttpServletResponse response,
+									HttpSession session) throws IOException {
 		
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
 		Member member = memberDao.getData(id);
 		
+		ModelAndView mav = new ModelAndView();
 		PrintWriter pw = response.getWriter();
 		response.setContentType("text/html; charset=UTF-8");
-
-		ModelAndView mav = new ModelAndView();
 		
+		//아이디 없는 경우
 		if(member == null) {
 			System.out.println("존재하지 않는 회원");
 			pw.print("<script type='text/javascript'>");
@@ -54,20 +54,15 @@ public class MemberLoginController {
 			pw.flush();
 			mav.setViewName(getPage);
 		}
+		//아이디 존재하는 경우
 		else {
-			
 			if(password.equals(member.getPassword()) ) {// id, pw일치
 				session.setAttribute("loginInfo", member);
 				session.setAttribute("loginId", member.getId());
-				
-				if(id.equals("penguin")) {
-					mav.setViewName(adminPage);
-				}
-				else {
-					mav.setViewName(userPage);
-//				String destination = (String)session.getAttribute("destination");
-//				mav.setViewName(destination);
-			
+				if(session.getAttribute("loginId").equals("penguin")) {
+					mav.setViewName("redirect:/main.jsp");
+				} else {
+					mav.setViewName("redirect:/user.jsp");
 				}
 			}	
 			else {//비번 불일치

@@ -70,6 +70,15 @@ public class ExhibitionDao {
 		return mlist;
 	}
 
+	public List<Exhibition> ListMonth(String day) {
+		List<Exhibition> listm = new ArrayList<Exhibition>();
+		listm = sqlSessionTemplate.selectList(namespace+".ListMonth",day);
+		return listm;
+	}
+
+
+	
+
 
 	
 	

@@ -6,16 +6,19 @@
 <mapper namespace="member.model.Member">
 	<insert id="InsertMember">
 		insert into members(num, id, password, repassword, name, year, month, day, email, hp1, hp2, hp3, add1, add2, style, cat, age, gender)
-		values(mseq.nextval,#{id},#{password},#{repassword},#{name},#{year},#{month},#{day},#{email},#{hp1},#{hp2},#{hp3},#{add1},#{add2},#{style, jdbcType=VARCHAR},#{cat, jdbcType=VARCHAR},#{age, jdbcType=INTEGER},#{gender, jdbcType=VARCHAR})
+		values(mseq.nextval,#{id},#{password},#{repassword},#{name},#{year},#{month},#{day},#{email},#{hp1},#{hp2},#{hp3},#{add1},#{add2},#{style},#{cat},#{age},#{gender})
 	</insert>
 	
 	<select id ="GetData" resultType = "MyMember">
 		select * from members
 		where id = #{id}
-	</select>
+	</select>	
 	
 	<select id="GetDataList" resultType="MyMember">
 		select * from members
+		<if test="whatColumn == 'all'">
+			where id like #{keyword} or name like #{keyword}
+		</if>
 		<if test="whatColumn == 'id'">
 			where id like #{keyword}
 		</if>
@@ -43,7 +46,7 @@
 		where id=#{id} and name=#{name} and email=#{email}
 	</select>
 	
-	<delete id="DeleteData">
+		<delete id="DeleteData">
 		delete from members
 		where id= #{id}
 	</delete>

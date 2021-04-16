@@ -30,7 +30,6 @@
 					<input type="text" name="id" class="form-control" value="${ member.id }">
 					<form:errors cssClass="err" path="id"/>
 				</td>
-				
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="password">비밀번호</label></th>
@@ -133,13 +132,13 @@
 			<tr>
 				<th class="table-primary"><label for="cat">관심 카테고리</label></th>
 				<td>
-					<c:if test="${ fn:contains(member.cat,cat.kind) }">
+					<c:if test="${ fn:length(clist) == 0 }">
 						카테고리 등록 전입니다. 회원가입 후 수정 가능합니다.
 					</c:if>
 					<c:if test="${ fn:length(clist) > 0 }">
 						<c:forEach var="cat" items="${ clist }">
 							<input type="checkbox" name="cat" value="${ cat.kind }" 
-							<c:if test="${ fn:contains(member.cat,cat) }">checked</c:if>
+							<c:if test="${ fn:contains(member.cat,cat.kind) }">checked</c:if>
 							> ${ cat.kind }
 						</c:forEach>
 					</c:if>
