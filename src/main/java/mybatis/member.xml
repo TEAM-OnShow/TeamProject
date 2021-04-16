@@ -12,13 +12,24 @@
 	<select id ="GetData" resultType = "MyMember">
 		select * from members
 		where id = #{id}
-	</select>	
+	</select>
+	
+	<select id="GetDataList" resultType="MyMember">
+		select * from members
+		<if test="whatColumn == 'id'">
+			where id like #{keyword}
+		</if>
+		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+		order by num asc
+	</select>
 	
 	<update id = "UpdateMember">
 		update members set
 		password=#{password}, year=#{year}, month=#{month}, day=#{day}, email=#{email}, 
 		hp1=#{hp1}, hp2=#{hp2}, hp3=#{hp3}, add1=#{add1}, add2=#{add2}, style=#{style}, 
-		cat=#{cat}, age=#{age}, gender=#{gender}
+		cat=#{cat}
 		where num=#{num}
 	</update>
 	
@@ -31,5 +42,10 @@
 		select password from members
 		where id=#{id} and name=#{name} and email=#{email}
 	</select>
+	
+	<delete id="DeleteData">
+		delete from members
+		where id= #{id}
+	</delete>
 	
 </mapper>	
