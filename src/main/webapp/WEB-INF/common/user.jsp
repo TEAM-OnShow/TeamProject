@@ -57,7 +57,11 @@
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="userExhibit.ex">전시/박람목록</a> <a
 							class="dropdown-item" href="exhibitPlan.ex?day=<%=day%>">전시/박람예정목록</a> <a
+<<<<<<< HEAD
 							class="dropdown-item" href="#">예약방법</a>
+=======
+							class="dropdown-item" href="reserve.ex">예약방법</a>
+>>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 					</div>
 				</li>
 
@@ -67,7 +71,11 @@
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="info.me">내정보</a>
 						<a class="dropdown-item" href="order.re">구매내역</a>
+<<<<<<< HEAD
 						<a class="dropdown-item" href="">문의내역</a>
+=======
+						<a class="dropdown-item" href="list.inq?whatColumn=id&keyword=${sessionScope.loginId}&mylist=1">문의내역</a>
+>>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 					</div>
 				</li>
 
@@ -76,7 +84,11 @@
 					role="button" aria-haspopup="true" aria-expanded="false">고객센터</a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="list.nt">공지사항</a>
+<<<<<<< HEAD
 						<a class="dropdown-item" href="list.qna">Q&A</a>
+=======
+						<a class="dropdown-item" href="list.qna">자주묻는질문</a>
+>>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 						<a class="dropdown-item" href="list.inq">1:1문의</a>
 					</div>
 				</li>

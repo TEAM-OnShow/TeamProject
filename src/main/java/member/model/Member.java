@@ -3,11 +3,16 @@ package member.model;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
+<<<<<<< HEAD
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class Member {
 	
 	
+=======
+
+public class Member {
+>>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 	private int num;
 
 	@NotBlank(message = "아이디를 입력해주세요.")
@@ -22,11 +27,16 @@ public class Member {
 	@NotBlank(message = "이름을 입력해주세요.")
 	private String name;
 	
+<<<<<<< HEAD
 	@NotEmpty(message = "년도 선택")
 	private String year;
 	@NotEmpty(message = "달 선택")
 	private String month;
 	@NotEmpty(message = "일 선택")
+=======
+	private String year;
+	private String month;
+>>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 	private String day;
 	
 	@NotBlank(message = "이메일을 입력해주세요.")
@@ -41,6 +51,7 @@ public class Member {
 	@NotNull(message = "핸드폰 번호3을 입력해주세요")
 	private Integer hp3;
 	
+<<<<<<< HEAD
 	@NotBlank(message = "필수기재사항")
 	private String add1;
 	@NotBlank(message = "필수기재사항")
@@ -56,6 +67,15 @@ public class Member {
 	private Integer age;
 	
 	@NotEmpty(message = "선택필수")
+=======
+	private String add1;
+	private String add2;
+	
+	private String style;
+	private String cat;
+	
+	private Integer age;
+>>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 	private String gender;
 	
 	public Member() {
