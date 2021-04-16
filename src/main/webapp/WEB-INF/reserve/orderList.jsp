@@ -14,14 +14,6 @@
 	<%
 	}
 %>
-<%-- 
-<%
-	String main = "main.jsp";
-	Member loginInfo = (Member) session.getAttribute("loginInfo");
-	if(loginInfo.getNum() != 0) {
-		main = "user.jsp";
-	}
-%> --%>
 <!-- orderList.jsp => 주문 목록 보기 : 추가된 order 테이블 출력 -->
 <style>
 	table {

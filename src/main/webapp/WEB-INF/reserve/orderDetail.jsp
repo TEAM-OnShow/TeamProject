@@ -14,7 +14,6 @@
 	<%
 	}
 %>
-
 <!-- orderDetailList.jsp => 주문 상세 목록 보기 : order table의 primary key로 해당 orderdetail 목록 출력
 로그인 id >> ${ loginInfo.id }<br> -->
 <style>
