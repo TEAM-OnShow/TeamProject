@@ -1,6 +1,6 @@
+<%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../../common/common.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,10 +20,22 @@
 			font-size: 12px;
 		}
 	</style>
+<%
+	 Member loginInfo = (Member) session.getAttribute("loginInfo");
+	 if(loginInfo.getNum() != 0) {
+	 %>
+	     <%@ include file="../../common/user.jsp" %>
+	  <% 
+   } else {
+   %>
+	     <%@ include file="../../common/admin.jsp" %>
+	 <%
+	 }
+%>
 </head>
 
 <body class="container">
-<h1>1:1문의</h1>
+<h2 class="mt-4">1:1문의</h2>
 <hr><br>
 	<form:form commandName="inq" method="post" action="update.inq">
 		<input type="hidden" name="pageNumber" value="${pageNumber}">

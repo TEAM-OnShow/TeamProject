@@ -1,20 +1,29 @@
+<%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../../common/common.jsp" %>
-
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 <title>Insert title here</title>
+<%
+	 Member loginInfo = (Member) session.getAttribute("loginInfo");
+	 if(loginInfo.getNum() != 0) {
+	 %>
+	     <%@ include file="../../common/user.jsp" %>
+	  <% 
+   } else {
+   %>
+	     <%@ include file="../../common/admin.jsp" %>
+	 <%
+	 }
+%>
 </head>
 
 <body class="container">
-<h1>1:1문의</h1>
-<hr>
+<h2 class="mt-4">1:1문의</h2>
+<hr><br>
 	<form action="list.inq">
 	<div class="input-group input-group-sm mb-3 p-3 border bg-light mx-auto" style="width: 35%">
 		<select class="form-select mr-2" name="whatColumn">

@@ -1,6 +1,6 @@
+<%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./../../common/common.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -8,11 +8,23 @@
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <title>Insert title here</title>
+	<%
+	   Member loginInfo = (Member) session.getAttribute("loginInfo");
+	   if(loginInfo.getNum() != 0) {
+	   %>
+	      <%@ include file="../../common/user.jsp" %>
+	   <% 
+	   } else {
+	   %>
+	      <%@ include file="../../common/admin.jsp" %>
+	   <%
+	   }
+	%>
 </head>
 
 <body class="container">
-	<h1>공지사항</h1>
-	<hr>
+<h2 class="mt-4">공지사항</h2>
+<hr><br>
 	
 	<div class="row border-bottom border-top ml-1 mr-1">
 		<div class="col bg-light text-center py-2"><b>제목</b></div>

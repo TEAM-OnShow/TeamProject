@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./../../common/common.jsp"%>
+<%@ include file="../../common/admin.jsp" %>
 <!DOCTYPE html>
 <html>
 <style type="text/css">
@@ -12,13 +12,12 @@
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 	<title>Insert title here</title>
 </head>
 
 <body class="container">
-<h1>공지사항</h1>
-<hr>
+<h2 class="mt-4">공지사항</h2>
+<hr><br>
 	<form:form commandName="notice" action="update.nt" method="post">
 		<input type="hidden" name="pageNumber" value="${pageNumber}">
 		<input type="hidden" name="no" value="${notice.no}">

@@ -181,3 +181,28 @@ create sequence qna_seq
   minvalue 1
   maxvalue 10000
   nocache;
+
+
+--1:1문의 테이블
+drop sequence inq_seq;
+create sequence inq_seq
+  increment by 1
+  start with 1
+  minvalue 1
+  maxvalue 10000
+  nocache;
+
+drop table inquiry;
+create table inquiry(
+num number primary key,
+id references members(id) on delete cascade,
+pw varchar2(10) not null,
+category varchar2(30) not null,
+title varchar2(100) not null,
+content clob not null,
+regdate date default sysdate,
+viewcnt number default 0,
+ref number,
+restep number default 0,
+ip varchar2(20)
+);

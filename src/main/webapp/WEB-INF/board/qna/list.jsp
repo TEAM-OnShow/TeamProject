@@ -1,6 +1,6 @@
+<%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./../../common/common.jsp"%>
 <!DOCTYPE html>
 <html>
 
@@ -27,11 +27,23 @@
 	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 	<title>Insert title here</title>
+	<%
+	   Member loginInfo = (Member) session.getAttribute("loginInfo");
+	   if(loginInfo.getNum() != 0) {
+	   %>
+	      <%@ include file="../../common/user.jsp" %>
+	   <% 
+	   } else {
+	   %>
+	      <%@ include file="../../common/admin.jsp" %>
+	   <%
+	   }
+	%>
 </head>
 
 <body class="container">
-<h2>자주묻는질문</h2>
-<hr>
+<h2 class="mt-4">자주묻는질문</h2>
+<hr><br>
 	<% String [] categories = {"전체", "회원가입", "전시관련", "티켓구매/발권", "취소/환불", "기타"}; %>
 	
 	<!-- 테스트 하기 위해 임시로 설정해둔것 -->

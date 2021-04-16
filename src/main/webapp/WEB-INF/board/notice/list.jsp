@@ -1,19 +1,30 @@
+<%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./../../common/common.jsp"%>
 <!DOCTYPE html>
 <html>
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 	<title>Insert title here</title>
+	<%
+	   Member loginInfo = (Member) session.getAttribute("loginInfo");
+	   if(loginInfo.getNum() != 0) {
+	   %>
+	      <%@ include file="../../common/user.jsp" %>
+	   <% 
+	   } else {
+	   %>
+	      <%@ include file="../../common/admin.jsp" %>
+	   <%
+	   }
+	%>
 </head>
 
 <body class="container">
-<h1>공지사항</h1>
-<hr>
+<h2 class="mt-4">공지사항</h2>
+<hr><br>
+
 	<table class="table mt-5">
 	    <tr class="text-center">
 	      <th>번호</th>

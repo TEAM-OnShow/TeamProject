@@ -1,13 +1,25 @@
+<%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./../../common/common.jsp"%>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 <title>Insert title here</title>
+
+<%
+	 Member loginInfo = (Member) session.getAttribute("loginInfo");
+	 if(loginInfo.getNum() != 0) {
+	 %>
+	     <%@ include file="../../common/user.jsp" %>
+	  <% 
+   } else {
+   %>
+	     <%@ include file="../../common/admin.jsp" %>
+	 <%
+	 }
+%>
 </head>
 
 <body class="container">
@@ -22,8 +34,8 @@
 		}
 	</script>
 	
-	<h1>1:1문의</h1>
-	<hr>
+	<h2 class="mt-4">1:1문의</h2>
+	<hr><br>
 	
 	<c:choose>
 		<c:when test="${inq.restep==0}"><c:set value="질문" var="h5"/></c:when>

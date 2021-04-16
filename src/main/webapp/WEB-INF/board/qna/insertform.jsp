@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="./../../common/common.jsp"%>
+<%@ include file="../../common/admin.jsp" %>
 <!DOCTYPE html>
 <html>
 <style type="text/css">
@@ -12,13 +12,12 @@
 
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 	<title>Insert title here</title>
 </head>
 
 <body class="container">
-<h1>자주묻는질문</h1>
-<hr>
+<h2 class="mt-4">자주묻는질문</h2>
+<hr><br>
 	<form:form commandName="qna" action="insert.qna" method="post">
 		<div class="mb-3">
 			<label for="category" class="form-label">카테고리</label> <br>
