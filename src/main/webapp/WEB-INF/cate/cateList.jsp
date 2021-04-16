@@ -18,6 +18,7 @@
 		}
 	}
 </script>
+<div class="container">
 <center>
 <br><br>
 <form action="cateList.ca">
@@ -30,13 +31,13 @@
 	<input type="submit" class="btn btn-primary" value="검색">
 </form>
 </center>
-<table border="1" class="table table-hover">	
+<table border="1" class="table">	
 	<tr class="table-secondary">
 		<td colspan="5" align="right">
 			<input type="button" class="btn btn-primary" value="추가등록" onClick="input()">
 		</td>
 	</tr>
-	<tr align="center">
+	<tr class="table table-primary" align="center">
 		<th>번호</th>
 		<th>구분</th>
 		<th>코드번호</th>
@@ -56,7 +57,9 @@
 		</tr>
 	</c:forEach>
 </table>
-
-<center>
-	<b>${pageInfo.pagingHtml}</b>
-</center>
+	<div style="width: fit-content; margin: 0 auto;">
+		<ul class="pagination">
+			${ pageInfo.pagingHtml }
+		</ul>
+	</div>
+</div>

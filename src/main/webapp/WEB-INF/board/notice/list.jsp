@@ -8,16 +8,22 @@
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
 	<%
-	   Member loginInfo = (Member) session.getAttribute("loginInfo");
-	   if(loginInfo.getNum() != 0) {
-	   %>
-	      <%@ include file="../../common/user.jsp" %>
-	   <% 
-	   } else {
-	   %>
-	      <%@ include file="../../common/admin.jsp" %>
-	   <%
-	   }
+		Member loginInfo = (Member) session.getAttribute("loginInfo");
+		if(loginInfo == null) {
+		%>
+			<%@ include file="../../common/user.jsp" %>
+		<% 	
+		} else {
+		   if(loginInfo.getNum() != 0) {
+		   %>
+		      <%@ include file="../../common/user.jsp" %>
+		   <% 
+		   } else {
+		   %>
+		      <%@ include file="../../common/admin.jsp" %>
+		   <%
+		   }
+		}
 	%>
 </head>
 

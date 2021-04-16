@@ -4,6 +4,7 @@
 <%@ include file="top.jsp"%>
 
 <!-- userExhibitList.jsp<br> -->
+
 			<table border="1" frame="void" class="table table-hover">
 				<tr align="center">
 					<%
@@ -36,3 +37,4 @@
 		</td>
 	</tr>
 </table>
+</div>
