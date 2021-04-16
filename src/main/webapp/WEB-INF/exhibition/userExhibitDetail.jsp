@@ -9,7 +9,7 @@
 </style>
 <br><br>
 <div class="container">
-<table class="table table-hover" border="1" frame="void">
+<table class="table" border="1" frame="void">
 	<tr>
 		<td rowspan="10" style=vertical-align:middle;text-align:center;>
 			<img src="<%=request.getContextPath()%>/resources/${exhibit.img }" width="200px" height="300px">

@@ -15,15 +15,15 @@
 <br><br>
 <div class="container">
 <form:form commandName="cate" action="cateInput.ca" method="post">
-	<table class="table table-hover" border="1" frame="void">
-		<tr class="table-secondary">
+	<table class="table table-secondary" border="1" frame="void">
+		<tr>
 			<td align="center">구분</td>
 			<td>
 				<input type="text" name="kind">
 				<form:errors cssClass="err" path="kind"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td align="center">코드번호</td>
 			<td>
 				<input type="text" name="code">

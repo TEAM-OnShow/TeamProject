@@ -18,7 +18,7 @@
 	//System.out.println(daym);
 %>
 
-<table border="1" frame="void" class="table table-hover">
+<table border="1" frame="void" class="table">
 	<c:set var="day" value="<%=day %>" />
 	<tr align="center">
 		<%
@@ -59,4 +59,4 @@
 </td>
 </tr>
 </table>
-
+</div>

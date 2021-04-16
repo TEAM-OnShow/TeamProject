@@ -16,8 +16,8 @@
 <br><br>
 <div class="container">
 <form:form commandName="exhibition" action="exhibitInput.ex" method="post" enctype="multipart/form-data">
-	<table class="table table-hover" border="1" frame="void">
-		<tr class="table-secondary">
+	<table class="table table-secondary" border="1" frame="void">
+		<tr>
 			<td>카테고리</td>
 			<td>
 				<select name="category">
@@ -29,14 +29,14 @@
 				<form:errors cssClass="err" path="category"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>행사명</td>
 			<td>
 				<input type="text" name="name">
 				<form:errors cssClass="err" path="name"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>행사기간</td>
 			<td>
 				<input type="date" name="start_period">
@@ -46,7 +46,7 @@
 				<form:errors cssClass="err" path="end_period"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>행사시간</td>
 			<td>
 				<select name="start_time">
@@ -75,28 +75,28 @@
 				
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>장소</td>
 			<td>
 				<input type="text" name="place">
 				<form:errors cssClass="err" path="place"/>		
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>주최회사</td>
 			<td>
 				<input type="text" name="company">
 				<form:errors cssClass="err" path="company"/>	
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>입장료</td>
 			<td>
 				<input type="text" name="price" value="0">
 				<form:errors cssClass="err" path="price"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>문의처</td>
 			<td>
 				<select name="area_tel">
@@ -111,14 +111,14 @@
 				<form:errors cssClass="err" path="tel2"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>이미지</td>
 			<td>
 				<input type="file" name="upload">
 				<form:errors cssClass="err" path="img"/>	
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>행사컬러(복수선택可)</td>
 			<td>
 				<input type="checkbox" name="style" value="뷰티">뷰티 &nbsp;
@@ -129,7 +129,7 @@
 				
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>내용</td>
 			<td>
 				<textarea cols="50" rows="10" name="contents" style=resize:none;>내용없음</textarea>
