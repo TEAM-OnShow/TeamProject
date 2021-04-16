@@ -54,7 +54,7 @@
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="list.me">회원목록</a>
 						<a class="dropdown-item" href="order.re">구매내역</a>
-						<a class="dropdown-item" href="#">문의내역</a>
+						<a class="dropdown-item" href="list.inq?whatColumn=id&keyword=${sessionScope.loginId}&mylist=1">문의 답글내역</a>
 					</div>
 				</li>
 
@@ -63,7 +63,7 @@
 					role="button" aria-haspopup="true" aria-expanded="false">고객센터</a>
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="list.nt">공지사항</a>
-						<a class="dropdown-item" href="list.qna">Q&A</a>
+						<a class="dropdown-item" href="list.qna">자주묻는질문</a>
 						<a class="dropdown-item" href="list.inq">1:1문의</a>
 					</div>
 				</li>
