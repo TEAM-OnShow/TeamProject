@@ -14,7 +14,7 @@
 			<%@ include file="../../common/user.jsp" %>
 		<% 	
 		} else {
-		   if(loginInfo.getNum() != 0) {
+		   if(loginInfo.getNum()!=0) {
 		   %>
 		      <%@ include file="../../common/user.jsp" %>
 		   <% 
@@ -29,9 +29,8 @@
 
 <body class="container">
 <h2 class="mt-4">공지사항</h2>
-<hr><br>
-
-	<table class="table mt-5">
+<hr>
+	<table class="table mt-4">
 	    <tr class="text-center">
 	      <th>번호</th>
 	      <th class="w-50">제목</th>
@@ -72,7 +71,6 @@
 	    </c:forEach>
 	</table> 
 	
-	<% session.setAttribute("loginId", "penguin"); %>
 	<c:if test="${sessionScope.loginId=='penguin'}">
 		<p align="right">
 			<button type="button" class="border border-secondary bg-light" onClick="location.href='write.nt'">

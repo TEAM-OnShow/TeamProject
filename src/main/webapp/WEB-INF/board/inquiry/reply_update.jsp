@@ -10,8 +10,8 @@
 </head>
 
 <body class="container">
-	<h1>1:1문의</h1>
-	<hr>
+<h2 class="mt-4">1:1문의</h2>
+<hr><br>
 	
 	<form action="update.inq" method="post">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">

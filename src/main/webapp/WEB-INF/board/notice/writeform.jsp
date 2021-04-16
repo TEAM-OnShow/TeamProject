@@ -1,6 +1,6 @@
-<%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="../../common/admin.jsp" %>
 <!DOCTYPE html>
 <html>
 <style type="text/css">
@@ -13,22 +13,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<%
-	   Member loginInfo = (Member) session.getAttribute("loginInfo");
-	   if(loginInfo.getNum() != 0) {
-	   %>
-	      <%@ include file="../../common/user.jsp" %>
-	   <% 
-	   } else {
-	   %>
-	      <%@ include file="../../common/admin.jsp" %>
-	   <%
-	   }
-	%>
+</head>
 
 <body class="container">
 <h2 class="mt-4">공지사항</h2>
-<hr><br>
+<hr>
 	<form:form commandName="notice" action="write.nt" method="post">
 		<div class="mb-3">
 			<label for="title" class="form-label">제목</label>

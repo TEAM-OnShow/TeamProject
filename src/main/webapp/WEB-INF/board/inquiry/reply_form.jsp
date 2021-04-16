@@ -10,8 +10,8 @@
 </head>
 
 <body class="container">
-<h1>1:1문의</h1>
-<hr>
+<h2 class="mt-4">1:1문의</h2>
+<hr><br>
 
 	<div class="border-bottom border-secondary"><h5>질문</h5></div>
 	

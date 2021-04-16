@@ -17,7 +17,7 @@
 
 <body class="container">
 <h2 class="mt-4">공지사항</h2>
-<hr><br>
+<hr>
 	<form:form commandName="notice" action="update.nt" method="post">
 		<input type="hidden" name="pageNumber" value="${pageNumber}">
 		<input type="hidden" name="no" value="${notice.no}">

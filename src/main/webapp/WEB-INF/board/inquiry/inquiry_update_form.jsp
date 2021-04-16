@@ -5,7 +5,6 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/bootstrap.css">
 	<title>Insert title here</title>
 	
 	<style type="text/css">
@@ -20,18 +19,24 @@
 			font-size: 12px;
 		}
 	</style>
-<%
-	 Member loginInfo = (Member) session.getAttribute("loginInfo");
-	 if(loginInfo.getNum() != 0) {
-	 %>
-	     <%@ include file="../../common/user.jsp" %>
-	  <% 
-   } else {
-   %>
-	     <%@ include file="../../common/admin.jsp" %>
-	 <%
-	 }
-%>
+	<%
+		Member loginInfo = (Member) session.getAttribute("loginInfo");
+		if(loginInfo == null) {
+		%>
+			<%@ include file="../../common/user.jsp" %>
+		<% 	
+		} else {
+		   if(loginInfo.getNum()!=0) {
+		   %>
+		      <%@ include file="../../common/user.jsp" %>
+		   <% 
+		   } else {
+		   %>
+		      <%@ include file="../../common/admin.jsp" %>
+		   <%
+		   }
+		}
+	%>
 </head>
 
 <body class="container">
