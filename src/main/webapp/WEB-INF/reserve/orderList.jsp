@@ -1,15 +1,19 @@
 <%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/user.jsp" %>
-<%-- 
+
 <%
-	String main = "main.jsp";
 	Member loginInfo = (Member) session.getAttribute("loginInfo");
 	if(loginInfo.getNum() != 0) {
-		main = "user.jsp";
+	%>
+		<%@ include file="../common/user.jsp" %>
+	<% 
+	} else {
+	%>
+		<%@ include file="../common/admin.jsp" %>
+	<%
 	}
-%> --%>
+%>
 <!-- orderList.jsp => 주문 목록 보기 : 추가된 order 테이블 출력 -->
 <style>
 	table {
