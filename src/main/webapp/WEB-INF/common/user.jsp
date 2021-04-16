@@ -57,7 +57,7 @@
 					<div class="dropdown-menu">
 						<a class="dropdown-item" href="userExhibit.ex">전시/박람목록</a> <a
 							class="dropdown-item" href="exhibitPlan.ex?day=<%=day%>">전시/박람예정목록</a> <a
-							class="dropdown-item" href="#">예약방법</a>
+							class="dropdown-item" href="reserve.ex">예약방법</a>
 					</div>
 				</li>
 
