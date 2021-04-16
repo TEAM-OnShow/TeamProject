@@ -52,7 +52,7 @@
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"
 					role="button" aria-haspopup="true" aria-expanded="false">회원페이지</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="list.me">내정보</a>
+						<a class="dropdown-item" href="#">회원목록</a>
 						<a class="dropdown-item" href="order.re">구매내역</a>
 						<a class="dropdown-item" href="#">문의내역</a>
 					</div>

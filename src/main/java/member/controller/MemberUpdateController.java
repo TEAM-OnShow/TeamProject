@@ -6,11 +6,17 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+<<<<<<< HEAD
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+=======
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+>>>>>>> c5dcf89fce4a7ec74b779e75fc2460738fab6f46
 import org.springframework.web.servlet.ModelAndView;
 
 import member.model.Member;
@@ -26,9 +32,13 @@ public class MemberUpdateController {
 	private MemberDao memberDao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
+<<<<<<< HEAD
 	public String doAction(@RequestParam(value="num")int num, Model model ) {
 		model.addAttribute("num", num);
 		System.out.println(num);
+=======
+	public String doAction() {
+>>>>>>> c5dcf89fce4a7ec74b779e75fc2460738fab6f46
 		return getPage;
 	}
 	

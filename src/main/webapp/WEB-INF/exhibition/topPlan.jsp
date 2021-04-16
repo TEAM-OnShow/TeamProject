@@ -14,7 +14,8 @@
 
 <%-- <h2>전시/박람 예정목록(<%=daym %>월이후 행사~)</h2> --%>
 <br><br>
-<table border="1" frame="void" class="table table-hover">
+<div class="container">
+<table border="1" frame="void" class="table table-secondary">
 	<tr align="center" class="table-secondary">
 		<td> <b style=font-size:25pt;>[예정 월]</b><br><br>
 			<table align="center">

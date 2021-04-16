@@ -6,7 +6,7 @@
 <!-- userSearchPlanList.jsp<br> -->
 
 <h2 align="center">${month}월달 예정행사</h2>
-		<table border="1" frame="void" class="table table-hover">
+		<table border="1" frame="void" class="table">
 				<tr align="center">
 					<%
 						int cnt = 0;

@@ -19,8 +19,8 @@
 <form:form commandName="exhibition" action="exhibitUpdate.ex" method="post" enctype="multipart/form-data">
 	<input type="hidden" name=num value="${exhibition.num }">
 	<input type="hidden" name=pageNumber value="${pageNumber}">
-	<table class="table table-hover" border="1" frame="void">
-		<tr class="table-secondary">
+	<table class="table table-secondary" border="1" frame="void">
+		<tr>
 			<td>카테고리</td>
 			<td>
 				<select name="category">
@@ -32,14 +32,14 @@
 				<form:errors cssClass="err" path="category"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>행사명</td>
 			<td>
 				<input type="text" name="name" value="${exhibition.name}">
 				<form:errors cssClass="err" path="name"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>행사기간</td>
 			<td>
 				<fmt:parseDate value='${exhibition.start_period }' var='start' pattern='yyyy-MM-dd'/>
@@ -53,7 +53,7 @@
 				<form:errors cssClass="err" path="end_period"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>행사시간</td>
 			<td>
 				<select name="start_time">
@@ -84,28 +84,28 @@
 				
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>장소</td>
 			<td>
 				<input type="text" name="place" value="${exhibition.place }">
 				<form:errors cssClass="err" path="place"/>		
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>주최회사</td>
 			<td>
 				<input type="text" name="company" value="${exhibition.company }">
 				<form:errors cssClass="err" path="company"/>	
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>입장료</td>
 			<td>
 				<input type="text" name="price" value="${exhibition.price }">
 				<form:errors cssClass="err" path="price"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>문의처</td>
 			<td>
 				<select name="area_tel">
@@ -120,7 +120,7 @@
 				<form:errors cssClass="err" path="tel2"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>이미지</td>
 			<td>
 				<img src="<%=request.getContextPath()%>/resources/${exhibition.img}" width="50px" height="50px">
@@ -129,7 +129,7 @@
 				<form:errors cssClass="err" path="img"/>
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>행사컬러(복수선택可)</td>
 			<td>
 				<c:forEach var="style" items="<%=style %>">  
@@ -137,7 +137,7 @@
 				</c:forEach>	
 			</td>
 		</tr>
-		<tr class="table-secondary">
+		<tr>
 			<td>내용</td>
 			<td>
 				<textarea cols="30" rows="10" name="contents" style=resize:none;>${exhibition.contents }</textarea>

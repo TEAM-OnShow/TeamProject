@@ -23,13 +23,13 @@
 		<input type="text" name="keyword">
 		<input type="submit" class="btn btn-primary" value="검색">
 	</form>
-	<table border="1" class="table table-hover">	
+	<table border="1" class="table">	
 		<tr class="table-secondary">
 			<td colspan="12" align="right">
 				<input type="button" class="btn btn-primary" value="등록" onClick="insert()">
 			</td>
 		</tr>
-		<tr align="center">
+		<tr class="table-primary" align="center">
 			<th>등록번호</th>
 			<th>카테고리</th>
 			<th>주최회사</th>
