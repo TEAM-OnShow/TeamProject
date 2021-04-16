@@ -1,7 +1,19 @@
 <%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/user.jsp" %>
+
+<%
+	Member loginInfo = (Member) session.getAttribute("loginInfo");
+	if(loginInfo.getNum() != 0) {
+	%>
+		<%@ include file="../common/user.jsp" %>
+	<% 
+	} else {
+	%>
+		<%@ include file="../common/admin.jsp" %>
+	<%
+	}
+%>
 <%-- 
 <%
 	String main = "main.jsp";

@@ -1,7 +1,19 @@
 <%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../common/user.jsp" %>
+   
+<%
+	Member loginInfo = (Member) session.getAttribute("loginInfo");
+	if(loginInfo.getNum() != 0) {
+	%>
+		<%@ include file="../common/user.jsp" %>
+	<% 
+	} else {
+	%>
+		<%@ include file="../common/admin.jsp" %>
+	<%
+	}
+%>
 
 <!-- orderDetailList.jsp => 주문 상세 목록 보기 : order table의 primary key로 해당 orderdetail 목록 출력
 로그인 id >> ${ loginInfo.id }<br> -->
