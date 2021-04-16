@@ -2,11 +2,22 @@ package qna.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
+
 public class Qna{
 	private int no;
+	
+	@NotBlank(message = "※ 카테고리 선택 누락")
 	private String category;
+	
+	@NotBlank(message = "※ 질문입력은 필수입니다")
 	private String question;
+	
+	@NotBlank(message = "※ 답변입력은 필수입니다")
 	private String answer;
+	
 	private Date regdate;
 	
 	public Qna() {

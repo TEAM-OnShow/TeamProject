@@ -140,6 +140,10 @@ public class Paging {
 		this.keyword = keyword;
 	}
 	
+	public Paging() {
+		super();
+	}
+
 	public Paging(
 					String _pageNumber, 
 					String _pageSize,  
@@ -154,7 +158,7 @@ public class Paging {
 		System.out.println("pageNumber: "+pageNumber);
 
 		if( _pageSize == null || _pageSize.equals("null") || _pageSize.equals("") ){
-			_pageSize = "5" ; // 한 페이지에 보여줄 레코드 갯수:5
+			_pageSize = "10" ; // 한 페이지에 보여줄 레코드 갯수:5
 		}		
 		this.pageSize = Integer.parseInt( _pageSize ); //5
 		
@@ -208,7 +212,7 @@ public class Paging {
 		this.pageNumber = Integer.parseInt( _pageNumber ); 
 
 		if( _pageSize == null || _pageSize.equals("null") || _pageSize.equals("") ){
-			_pageSize = "5" ; // 한 페이지에 보여줄 레코드 갯수
+			_pageSize = "10" ; // 한 페이지에 보여줄 레코드 갯수
 		}		
 		this.pageSize = Integer.parseInt( _pageSize );
 		
@@ -306,12 +310,12 @@ public class Paging {
 		//가운데
 		for (int i = this.beginPage; i <= this.endPage ; i++) {
 			if ( i == this.pageNumber ) {
-				result += "&nbsp;<font color='red'>" + i + "</font>&nbsp;"	;
+				result += "<li class='page-item active'><a class='page-link' href='#'>" + i + "</a></li>";
 						
 			} else {
-				result += "&nbsp;<a href='" + url   
+				result += "<li class='page-item'><a class='page-link' href='" + url   
 						+ "?pageNumber=" + i + "&pageSize=" + this.pageSize 
-						+ added_param + "'>" + i + "</a>&nbsp;" ;
+						+ added_param + "'>" + i + "</a></li>" ;
 			}
 		}
 		

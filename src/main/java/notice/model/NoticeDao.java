@@ -1,6 +1,5 @@
 package notice.model;
- 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.apache.ibatis.session.RowBounds;
@@ -32,6 +31,11 @@ public class NoticeDao {
 		List<Notice> lists = sqlSessionTemplate.selectList(namespace+".GetNoticeList", null, rowBounds);
 		return lists;
 	}
+	
+	public List<Notice> getImpNotice() {
+		List<Notice> lists = sqlSessionTemplate.selectList(namespace+".GetImpNotice");
+		return lists;
+	}
 
 	public Notice getNoticeByNo(int no) {
 		Notice notice = sqlSessionTemplate.selectOne(namespace+".GetNoticeByNo", no);
@@ -49,5 +53,6 @@ public class NoticeDao {
 	public void updateNotice(Notice notice) {
 		sqlSessionTemplate.update(namespace+".UpdateNotice", notice);
 	}
+
 
 }

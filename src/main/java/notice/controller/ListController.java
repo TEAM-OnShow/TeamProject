@@ -31,11 +31,13 @@ public class ListController {
 		Paging pageInfo = new Paging(pageNumber, pageSize, count, url);
 		  
 		//리스트 가져오기
-		List<Notice> lists = noticeDao.getNoticeList(pageInfo);
+		List<Notice> lists = noticeDao.getNoticeList(pageInfo); //페이지 리스트 가져오기
+		List<Notice> imp_lists = noticeDao.getImpNotice(); //imp가 1인 페이지만 가져오기
 		
 		//모델에 담아 넘기기
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("lists", lists);
+		mav.addObject("imp_lists", imp_lists);
 		mav.addObject("pageInfo", pageInfo);
 		mav.setViewName("list");
 		return mav;
