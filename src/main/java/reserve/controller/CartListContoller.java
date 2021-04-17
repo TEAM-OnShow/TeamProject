@@ -26,32 +26,40 @@ public class CartListContoller { // 장바구니 목록 출력(상품 추가, 장바구니 링크)
 	
 	@RequestMapping(command)
 	public String doAction(HttpSession session) {
-		CartList cart = (CartList) session.getAttribute("cart"); // 장바구니 호출
-		Map<String, Integer> mapCart = cart.getAllOrderLists();
+		if(session.getAttribute("loginInfo") == null) {
+			session.setAttribute("destination", "redirect:"+command);
+			return "redirect:/loginForm.me";		
+		}
 		
-		Set<String> keys = mapCart.keySet();
+		CartList cart = (CartList) session.getAttribute("cart"); // 장바구니 호출
 		
 		ArrayList<ShoppingInfo> cartList = new ArrayList<ShoppingInfo>(); // 장바구니 노출 정보
 		
 		int totalAmount = 0;
-		for(String key : keys) {
-			String[] info = key.split("/");
-			int pnum = Integer.parseInt(info[0]);
-			Exhibition exhi = edao.DetailExhibition(pnum);
+		
+		if(cart != null) {
+			Map<String, Integer> mapCart = cart.getAllOrderLists();
 			
-			ShoppingInfo sh = new ShoppingInfo();
-			
-			sh.setPnum(pnum);
-			
-			String pname = exhi.getName() +" ( "+info[1] + " / " + info[2] + ":00 )";
-			sh.setPname(pname);
-			sh.setOqty(mapCart.get(key));
-			sh.setPrice(exhi.getPrice());  
-			sh.setAmount(sh.getOqty() * sh.getPrice());
-			
-			cartList.add(sh);
-			
-			totalAmount += sh.getAmount();
+			Set<String> keys = mapCart.keySet();
+			for(String key : keys) {
+				String[] info = key.split("/");
+				int pnum = Integer.parseInt(info[0]);
+				Exhibition exhi = edao.DetailExhibition(pnum);
+				
+				ShoppingInfo sh = new ShoppingInfo();
+				
+				sh.setPnum(pnum);
+				
+				String pname = exhi.getName() +" ( "+info[1] + " / " + info[2] + ":00 )";
+				sh.setPname(pname);
+				sh.setOqty(mapCart.get(key));
+				sh.setPrice(exhi.getPrice());  
+				sh.setAmount(sh.getOqty() * sh.getPrice());
+				
+				cartList.add(sh);
+				
+				totalAmount += sh.getAmount();
+			}
 		}
 		
 		session.setAttribute("cartList", cartList);

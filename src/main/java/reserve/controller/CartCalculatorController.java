@@ -53,6 +53,8 @@ public class CartCalculatorController {
 			oddao.insertData(odetail); // 주문 상세 테이블 추가
 		}
 		
+		session.setAttribute("cart", null);
+		
 		return gotoPage;
 	}
 	

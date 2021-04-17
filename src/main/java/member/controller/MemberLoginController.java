@@ -59,11 +59,9 @@ public class MemberLoginController {
 			if(password.equals(member.getPassword()) ) {// id, pw일치
 				session.setAttribute("loginInfo", member);
 				session.setAttribute("loginId", member.getId());
-				if(session.getAttribute("loginId").equals("penguin")) {
-					mav.setViewName("redirect:/main.jsp");
-				} else {
-					mav.setViewName("redirect:/user.jsp");
-				}
+
+				String destination = (String)session.getAttribute("destination");
+				mav.setViewName(destination);
 			}	
 			else {//비번 불일치
 				pw.print("<script type='text/javascript'>");
