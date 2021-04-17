@@ -19,48 +19,48 @@
 	<table border="1" class="table">
 		<tr>
 			<th class="table-secondary" width="30%">이름</th>
-			<td>${loginInfo.name}</td>
+			<td>${member.name}</td>
 		</tr>
 		<tr>
 			<th class="table-secondary">아이디</th>
-			<td>${loginInfo.id}</td>
+			<td>${member.id}</td>
 		</tr>
 		<tr>
 			<th class="table-secondary">비밀번호</th>
-			<td>${loginInfo.password}</td>
+			<td>${member.password}</td>
 		</tr>
 		<tr>
 			<th class="table-secondary">나이</th>
-			<td>${loginInfo.age}</td>	
+			<td>${member.age}</td>	
 		</tr>
 		<tr>
 			<th class="table-secondary">성별</th>
-			<td>${loginInfo.gender}</td>	
+			<td>${member.gender}</td>	
 		</tr>
 		<tr>
 			<th class="table-secondary">생년월일</th>
-			<td>${loginInfo.year}년 ${loginInfo.month}월 ${loginInfo.day}일</td>
+			<td>${member.year}년 ${member.month}월 ${member.day}일</td>
 		</tr>
 		<tr>
 			<th class="table-secondary">이메일</th>
-			<td>${loginInfo.email}</td>
+			<td>${member.email}</td>
 		</tr>
 	
 		<tr>
 			<th class="table-secondary">휴대폰번호</th>
-			<td>${loginInfo.hp1}-${loginInfo.hp2}-${loginInfo.hp3}</td>
+			<td>${member.hp1}-${member.hp2}-${member.hp3}</td>
 		</tr>
 		<tr>
 			<th class="table-secondary">주소</th>
-			<td>${loginInfo.add1}<br>${loginInfo.add2}</td>
+			<td>${member.add1}  ${member.add2}</td>
 		</tr>
 		<tr>
 			<th class="table-secondary">취향</th>
-			<td>${loginInfo.style}</td>
+			<td>${member.style}</td>
 		</tr>
 		<tr>
 			<th class="table-secondary">관심카테고리</th>
-			<td>${loginInfo.cat}</td>
+			<td>${member.cat}</td>
 		</tr>
 		<tr>
 			<td class="table table-primary" align="center" colspan=2>

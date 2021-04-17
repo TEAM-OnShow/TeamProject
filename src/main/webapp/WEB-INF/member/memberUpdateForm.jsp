@@ -26,43 +26,44 @@
 <div class="container">
 	<h3 align=center style="padding:20px 0">마이페이지 수정</h3>
 	<form:form commandName="member" method="post" action="update.me">
+	<input type="hidden" name="num" value="${member.num}">
 		<table border=1 class="table table-secondary">
 			<tr>
 				<th width="25%" class="table-primary"><label for="id">아이디</label></th>
 				<td>
-					${loginInfo.id }
+					<input type="text" name="id" value="${member.id}" readonly>
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="password">비밀번호</label></th>
 				<td>
-					<input type="password" name="password" class="form-control" value="${ loginInfo.password }">
+					<input type="password" name="password" class="form-control" value="${ member.password }">
 					<form:errors cssClass="err" path="password"/>
 				</td>
 			</tr>	
 			<tr>
 				<th class="table-primary"><label for="repassword">비밀번호 확인</label></th>
 				<td>
-					<input type="password" name="repassword" class="form-control" value="${ loginInfo.repassword}">
+					<input type="password" name="repassword" class="form-control" value="${ member.repassword}">
 					<form:errors cssClass="err" path="repassword"/>
 				</td>
 			</tr>	
 			<tr>
 				<th class="table-primary"><label for="name">이름</label></th>
 				<td>
-					${loginInfo.name }
+					<input type="text" name="name" value="${member.name}" readonly>
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="gender">성별</label></th>
 				<td>
-					${loginInfo.gender }
+					<input type="text" name="gender" value="${member.gender}" readonly>
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="age">나이</label></th>
 				<td>
-					${loginInfo.age }
+					<input type="text" name="age" value="${member.age}" readonly>
 				</td>
 			</tr>
 			<tr>
@@ -71,8 +72,8 @@
 					<select name="year" class="form-control w20">
 						<c:forEach begin="1910" end="2021" var="y">
 							<option value="${ y }"
-							<c:if test="${ y == 1990 }"> selected</c:if>
-							> ${ y }
+							<c:if test="${y==1990}"> selected</c:if>
+							>${y}
 						</c:forEach>
 					</select>년 
 					
@@ -92,18 +93,18 @@
 			<tr>
 				<th class="table-primary"><label for="email">이메일</label></th>
 				<td>
-					<input type="text" name="email" class="form-control" value="${ loginInfo.email }">
+					<input type="text" name="email" class="form-control" value="${ member.email }">
 					<form:errors cssClass="err" path="email"/>
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="hp1">핸드폰</label></th>
 				<td>
-					<input type="text" name="hp1" class="form-control w20" value="${ loginInfo.hp1 }">
+					<input type="text" name="hp1" class="form-control w20" value="${ member.hp1 }">
 					-
-					<input type="text" name="hp2" class="form-control w20" value="${ loginInfo.hp2 }">
+					<input type="text" name="hp2" class="form-control w20" value="${ member.hp2 }">
 					-
-					<input type="text" name="hp3" class="form-control w20" value="${ loginInfo.hp3 }"><br>
+					<input type="text" name="hp3" class="form-control w20" value="${ member.hp3 }"><br>
 					<form:errors cssClass="err" path="hp1"/>
 					<form:errors cssClass="err" path="hp2"/>
 					<form:errors cssClass="err" path="hp3"/>
@@ -115,8 +116,8 @@
 					<label for="add2">세부주소</label>
 				</th>
 				<td>
-					<input type="text" name="add1" class="form-control" value="${ loginInfo.add1 }"><br>
-					<input type="text" name="add2" class="form-control" value="${ loginInfo.add2 }">
+					<input type="text" name="add1" class="form-control" value="${ member.add1 }"><br>
+					<input type="text" name="add2" class="form-control" value="${ member.add2 }">
 				</td>
 			</tr>
 			<tr>
