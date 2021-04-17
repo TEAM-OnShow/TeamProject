@@ -1,6 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%@ include file="./../common/user.jsp" %>
+
+<style type="text/css">
+	.err{
+		font-size: 9pt;
+		color:orange;
+		font-weight: bold;
+	}
+	
+	table .w20 {
+		display: inline-block;
+		width: 20%;
+	}
+</style>
+
 <script type="text/javascript">
 	function register() {
 		location.href = "registerForm.me"; // => MemberRegisterController.java
@@ -12,8 +27,10 @@
 		location.href = "findPw.me";
 	}
 </script>
-member\memberLoginForm.jsp<br>
-로그인화면<br>
+<br>
+<br>
+<div class="container">
+
 <form method="post" action="loginForm.me">
 	<table border="1">
 		<tr>
@@ -36,5 +53,5 @@ member\memberLoginForm.jsp<br>
 		</tr>
 	</table>
 </form>
-
+</div>
 

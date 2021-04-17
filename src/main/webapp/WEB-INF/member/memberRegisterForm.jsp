@@ -4,7 +4,7 @@
 <%@ include file="./../common/user.jsp" %>
 
 <%
-	String[] styleArr = {"뷰티","여행","유학/취업","가전","가구/생활"};
+	String[] styleArr = {"현대적인", "예술적인","감각적인","실용적인","에너지넘치는","감성적인"};
 %>
 
 <style type="text/css">
@@ -69,7 +69,7 @@
 				<th class="table-primary"><label for="year">생일</label></th>
 				<td>
 					<select name="year" class="form-control w20">
-						<c:forEach begin="1950" end="2021" var="y">
+						<c:forEach begin="1910" end="2021" var="y">
 							<option value="${ y }"
 							<c:if test="${ y == 1990 }"> selected</c:if>
 							> ${ y }
@@ -104,8 +104,8 @@
 					<input type="text" name="hp2" class="form-control w20" value="${ member.hp2 }">
 					-
 					<input type="text" name="hp3" class="form-control w20" value="${ member.hp3 }"><br>
-					<form:errors cssClass="err" path="hp1"/><br>
-					<form:errors cssClass="err" path="hp2"/><br>
+					<form:errors cssClass="err" path="hp1"/>
+					<form:errors cssClass="err" path="hp2"/>
 					<form:errors cssClass="err" path="hp3"/>
 				</td>
 			</tr>
@@ -132,16 +132,13 @@
 			<tr>
 				<th class="table-primary"><label for="cat">관심 카테고리</label></th>
 				<td>
-					<c:if test="${ fn:length(clist) == 0 }">
-						카테고리 등록 전입니다. 회원가입 후 수정 가능합니다.
-					</c:if>
-					<c:if test="${ fn:length(clist) > 0 }">
-						<c:forEach var="cat" items="${ clist }">
-							<input type="checkbox" name="cat" value="${ cat.kind }" 
-							<c:if test="${ fn:contains(member.cat,cat.kind) }">checked</c:if>
-							> ${ cat.kind }
-						</c:forEach>
-					</c:if>
+					<select name="cat">
+						<option value="">선택
+					<c:forEach var="cate" items="${list }">
+						<option value="${cate.kind}">${cate.kind}(${cate.code })</option>  
+					</c:forEach>
+					</select>
+					<form:errors cssClass="err" path="category"/>
 				</td>
 			</tr>
 			
