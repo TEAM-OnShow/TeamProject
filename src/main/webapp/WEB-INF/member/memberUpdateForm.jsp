@@ -21,8 +21,6 @@
 	}
 </style>
 
-
-
 <div class="container">
 	<h3 align=center style="padding:20px 0">마이페이지 수정</h3>
 	<form:form commandName="member" method="post" action="update.me">

@@ -1,7 +1,5 @@
 C:\ca_java_2011\Spring\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\TeamProject\resources
 
-초원수정
-
 drop sequence mseq;
 create sequence mseq
 increment by 1
@@ -9,7 +7,6 @@ start with 1
 minvalue 1
 maxvalue 10000
 nocache;
-
 
 drop table members cascade constraints;
 create table members(
@@ -62,13 +59,6 @@ select num, id, password, name, email, style, cat, age, gender from members;
 commit;
 
 -- cate : 카테고리 테이블
-drop table cate;
-create table cate(
-	num number primary key,
-	kind varchar2(20) not null,
-	code varchar2(20) not null
-);
-
 drop sequence cate_seq ;
 create sequence cate_seq
 increment by 1
@@ -76,6 +66,14 @@ start with 1
 minvalue 1
 maxvalue 10000
 nocache;
+
+drop table cate purge;
+
+create table cate(
+	num number primary key,
+	kind varchar2(20) not null,
+	code varchar2(20) not null
+);
 
 insert into cate 
 values(cate_seq.nextval,'뷰티','B01');
@@ -87,7 +85,16 @@ insert into cate
 values(cate_seq.nextval,'가전','E01');
 
 -- exhibition : 전시/박람 테이블
-drop table exhibition;
+drop sequence ex_seq ;
+create sequence ex_seq
+increment by 1
+start with 1
+minvalue 1
+maxvalue 10000
+nocache;
+
+DROP TABLE exhibition CASCADE CONSTRAINTS;
+
 create table exhibition(
 	num number not null primary key,
 	category varchar2(20) not null,
@@ -103,18 +110,9 @@ create table exhibition(
 	tel1 varchar2(10),
 	tel2 varchar2(10),
 	img varchar2(20),
-	style varchar2(50),
+	style varchar2(100),
 	contents varchar2(300) not null
 );
-
-drop sequence ex_seq ;
-create sequence ex_seq
-increment by 1
-start with 1
-minvalue 1
-maxvalue 10000
-nocache;
-
 
 -- order : 주문 테이블
 drop sequence seqorder;
