@@ -30,11 +30,7 @@
 	
 	<update id = "UpdateMember">
 		update members set
-<<<<<<< HEAD
-		password=#{password}, repassword=#{repassword}, year=#{year}, month=#{month}, day=#{day}, email=#{email}, 
-=======
 		password=#{password}, year=#{year}, month=#{month}, day=#{day}, email=#{email}, 
->>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 		hp1=#{hp1}, hp2=#{hp2}, hp3=#{hp3}, add1=#{add1}, add2=#{add2}, style=#{style}, 
 		cat=#{cat}
 		where num=#{num}

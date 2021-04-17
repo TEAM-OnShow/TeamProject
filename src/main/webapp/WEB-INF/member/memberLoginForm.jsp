@@ -1,24 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<<<<<<< HEAD
-<%@ include file="./../common/user.jsp" %>
-
-<style type="text/css">
-	.err{
-		font-size: 9pt;
-		color:orange;
-		font-weight: bold;
-	}
-	
-	table .w20 {
-		display: inline-block;
-		width: 20%;
-	}
-</style>
-
-=======
->>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 <script type="text/javascript">
 	function register() {
 		location.href = "registerForm.me"; // => MemberRegisterController.java
@@ -30,15 +12,8 @@
 		location.href = "findPw.me";
 	}
 </script>
-<<<<<<< HEAD
-<br>
-<br>
-<div class="container">
-
-=======
 member\memberLoginForm.jsp<br>
 로그인화면<br>
->>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 <form method="post" action="loginForm.me">
 	<table border="1">
 		<tr>
@@ -61,9 +36,5 @@ member\memberLoginForm.jsp<br>
 		</tr>
 	</table>
 </form>
-<<<<<<< HEAD
-</div>
-=======
 
->>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 

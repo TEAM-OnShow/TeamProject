@@ -33,15 +33,9 @@ public class Exhibition {
 	private int price;
 	
 	private String area_tel;
-<<<<<<< HEAD
-	@NotNull(message = "필수기재사항")
-	private String tel1;
-	@NotNull(message = "필수기재사항")
-=======
 	@NotBlank(message = "필수기재사항")
 	private String tel1;
 	@NotBlank(message = "필수기재사항")
->>>>>>> e05b927dcf2cacd49c0f8c429d1646d8597a56d3
 	private String tel2;
 	@NotEmpty(message = "화일 선택 안함")
 	private String img;
