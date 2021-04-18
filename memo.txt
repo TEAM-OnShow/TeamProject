@@ -1,5 +1,7 @@
 C:\ca_java_2011\Spring\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\TeamProject\resources
 
+4/18 16:20 초원수정
+
 drop sequence mseq;
 create sequence mseq
 increment by 1

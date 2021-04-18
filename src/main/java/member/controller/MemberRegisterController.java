@@ -47,6 +47,7 @@ public class MemberRegisterController {
 	public ModelAndView doAction(@Valid Member member, BindingResult result, HttpSession session) {
 		
 		ModelAndView mav = new ModelAndView();
+		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류");
 			List<Cate> list = cateDao.ListCate();

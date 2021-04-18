@@ -44,9 +44,16 @@
 		where id=#{id} and name=#{name} and email=#{email}
 	</select>
 	
-		<delete id="DeleteData">
+	<delete id="DeleteData">
 		delete from members
 		where id= #{id}
 	</delete>
+	
+	<select id = "YourStyle" resultType = "Integer">
+		select e.num
+		from members m join exhibition e
+		on m.style=e.style
+		where m.id=#{id}
+	</select>
 	
 </mapper>	

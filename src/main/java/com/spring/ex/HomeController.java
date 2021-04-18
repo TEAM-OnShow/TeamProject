@@ -51,4 +51,10 @@ public class HomeController {
 		return "ceo";
 	}
 	
+	@RequestMapping(value="/rule.com")
+	public String doRule() {
+		return "rule";
+	}
+	
+	
 }
