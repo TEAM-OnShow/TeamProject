@@ -1,8 +1,11 @@
 package reserve.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +31,7 @@ public class CartCalculatorController {
 	OrderDetailDao oddao; // 주문 상세 추가
 	
 	@RequestMapping(command)
-	public String doAction(HttpSession session) {
+	public String doAction(HttpSession session, HttpServletResponse response) throws Exception {
 		CartList cart = (CartList) session.getAttribute("cart"); // 장바구니 호출
 		Map<String, Integer> mapCart = cart.getAllOrderLists();
 		
@@ -54,6 +57,14 @@ public class CartCalculatorController {
 		}
 		
 		session.setAttribute("cart", null);
+
+		PrintWriter pw = response.getWriter();
+		response.setContentType("text/html; charset=UTF-8");
+
+		pw.print("<script type='text/javascript'>");
+		pw.print("alert('결재 완료되었습니다.')");
+		pw.print("</script>");
+		pw.flush();
 		
 		return gotoPage;
 	}

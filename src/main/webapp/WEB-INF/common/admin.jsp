@@ -32,9 +32,9 @@
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">회사소개</a>
 					<div class="dropdown-menu">
-						<a class="dropdown-item" href="#">회사소개</a>
-						<a class="dropdown-item" href="#">찾아오시는길</a>
-						<a class="dropdown-item" href="#">대표이사</a>
+						<a class="dropdown-item" href="info.com">회사소개</a>
+						<a class="dropdown-item" href="location.com">찾아오시는길</a>
+						<a class="dropdown-item" href="ceo.com">대표이사</a>
 					</div>
 				</li>
 

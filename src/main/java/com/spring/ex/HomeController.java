@@ -36,4 +36,19 @@ public class HomeController {
 		return "home";
 	}
 	
+	@RequestMapping(value="/location.com")
+	public String doLocation() {
+		return "location";
+	}
+	
+	@RequestMapping(value="/info.com")
+	public String doInfo() {
+		return "info";
+	}
+	
+	@RequestMapping(value="/ceo.com")
+	public String doCEO() {
+		return "ceo";
+	}
+	
 }
