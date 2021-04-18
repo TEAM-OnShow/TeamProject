@@ -22,28 +22,28 @@ public class Member {
 	@NotBlank(message = "이름을 입력해주세요.")
 	private String name;
 	
-	@NotEmpty(message = "년도 선택")
+	@NotEmpty(message = "생년월일을 입력해주세요.")
 	private String year;
-	@NotEmpty(message = "달 선택")
+	@NotEmpty(message = "")
 	private String month;
-	@NotEmpty(message = "일 선택")
+	@NotEmpty(message = "")
 	private String day;
 	
 	@NotBlank(message = "이메일을 입력해주세요.")
 	private String email;
 	
-	@NotNull(message = "핸드폰 번호1을 입력해주세요")
+	@NotNull(message = "핸드폰 번호를 입력해주세요.")
 	private Integer hp1;
 	
-	@NotNull(message = "핸드폰 번호2을 입력해주세요")
+	@NotNull(message = "")
 	private Integer hp2;
 	
-	@NotNull(message = "핸드폰 번호3을 입력해주세요")
+	@NotNull(message = "")
 	private Integer hp3;
 	
 	@NotBlank(message = "필수기재사항")
 	private String add1;
-	@NotBlank(message = "필수기재사항")
+	@NotBlank(message = "")
 	private String add2;
 	
 	@NotEmpty(message = "선택필수")

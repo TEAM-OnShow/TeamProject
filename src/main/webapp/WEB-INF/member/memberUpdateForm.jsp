@@ -21,6 +21,8 @@
 	}
 </style>
 
+
+
 <div class="container">
 	<h3 align=center style="padding:20px 0">마이페이지 수정</h3>
 	<form:form commandName="member" method="post" action="update.me">
@@ -30,17 +32,18 @@
 				<th width="25%" class="table-primary"><label for="id">아이디</label></th>
 				<td>
 					<input type="text" name="id" value="${member.id}" readonly>
+					변경불가
 				</td>
 			</tr>
 			<tr>
-				<th class="table-primary"><label for="password">비밀번호</label></th>
+				<th class="table-primary"><label for="password">비밀번호*</label></th>
 				<td>
 					<input type="password" name="password" class="form-control" value="${ member.password }">
 					<form:errors cssClass="err" path="password"/>
 				</td>
 			</tr>	
 			<tr>
-				<th class="table-primary"><label for="repassword">비밀번호 확인</label></th>
+				<th class="table-primary"><label for="repassword">비밀번호 확인*</label></th>
 				<td>
 					<input type="password" name="repassword" class="form-control" value="${ member.repassword}">
 					<form:errors cssClass="err" path="repassword"/>
@@ -50,22 +53,25 @@
 				<th class="table-primary"><label for="name">이름</label></th>
 				<td>
 					<input type="text" name="name" value="${member.name}" readonly>
+					변경불가
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="gender">성별</label></th>
 				<td>
 					<input type="text" name="gender" value="${member.gender}" readonly>
+					변경불가
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="age">나이</label></th>
 				<td>
 					<input type="text" name="age" value="${member.age}" readonly>
+					변경불가
 				</td>
 			</tr>
 			<tr>
-				<th class="table-primary"><label for="year">생일</label></th>
+				<th class="table-primary"><label for="year">생일*</label></th>
 				<td>
 					<select name="year" class="form-control w20">
 						<c:forEach begin="1910" end="2021" var="y">
@@ -86,17 +92,19 @@
 							<option value="${ d }"> ${ d }
 						</c:forEach>
 					</select>일
+					<form:errors cssClass="err" path="year"/>
+					
 				</td>
 			</tr>
 			<tr>
-				<th class="table-primary"><label for="email">이메일</label></th>
+				<th class="table-primary"><label for="email">이메일*</label></th>
 				<td>
 					<input type="text" name="email" class="form-control" value="${ member.email }">
 					<form:errors cssClass="err" path="email"/>
 				</td>
 			</tr>
 			<tr>
-				<th class="table-primary"><label for="hp1">핸드폰</label></th>
+				<th class="table-primary"><label for="hp1">핸드폰*</label></th>
 				<td>
 					<input type="text" name="hp1" class="form-control w20" value="${ member.hp1 }">
 					-
@@ -104,32 +112,31 @@
 					-
 					<input type="text" name="hp3" class="form-control w20" value="${ member.hp3 }"><br>
 					<form:errors cssClass="err" path="hp1"/>
-					<form:errors cssClass="err" path="hp2"/>
-					<form:errors cssClass="err" path="hp3"/>
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary">
-					<label for="add1">주소</label><br>
-					<label for="add2">세부주소</label>
+					<label for="add1">주소*</label><br>
 				</th>
 				<td>
 					<input type="text" name="add1" class="form-control" value="${ member.add1 }"><br>
 					<input type="text" name="add2" class="form-control" value="${ member.add2 }">
+					<form:errors cssClass="err" path="add1"/>
 				</td>
 			</tr>
 			<tr>
-				<th class="table-primary"><label for="style">취향</label></th>
+				<th class="table-primary"><label for="style">취향*</label></th>
 				<td>
 					<c:forEach var="style" items="<%=styleArr%>">
 						<input type="checkbox" name="style" value="${ style }" 
 						<c:if test="${ fn:contains(member.style,style) }">checked</c:if>
 						> ${ style }
 					</c:forEach>
+					<form:errors cssClass="err" path="style"/>
 				</td>
 			</tr>
 			<tr>
-				<th class="table-primary"><label for="cat">관심 카테고리</label></th>
+				<th class="table-primary"><label for="cat">관심 카테고리*</label></th>
 				<td>
 					<select name="cat">
 						<option value="">선택
@@ -137,7 +144,7 @@
 						<option value="${cate.kind}">${cate.kind}(${cate.code })</option>  
 					</c:forEach>
 					</select>
-					
+					<form:errors cssClass="err" path="cat"/>
 				</td>
 			</tr>
 			

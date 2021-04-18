@@ -2,6 +2,7 @@ package member.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -59,9 +60,24 @@ public class MemberLoginController {
 			if(password.equals(member.getPassword()) ) {// id, pw일치
 				session.setAttribute("loginInfo", member);
 				session.setAttribute("loginId", member.getId());
+				
+				if(session.getAttribute("loginId").equals("penguin")) {
+					mav.setViewName("redirect:/main.jsp");
+			
+				} else {
+					System.out.println("회원의 아이디는 "+member.getId());
+					Integer styleNum = memberDao.yourStyle(member.getId());
+										
+					if(styleNum==0) {
+						mav.setViewName("redirect:/user.jsp");
+						System.out.println("스타일추천 없음");
 
-				String destination = (String)session.getAttribute("destination");
-				mav.setViewName(destination);
+					} else {
+						System.out.println("스타일추천?"+ styleNum);
+						mav.addObject("aa", styleNum);
+						mav.setViewName("redirect:/user.jsp");
+					}
+				}
 			}	
 			else {//비번 불일치
 				pw.print("<script type='text/javascript'>");

@@ -57,12 +57,14 @@
 				<td>
 					<input type="radio" name="gender" value="남자"> 남자
 					<input type="radio" name="gender" value="여자"> 여자
+					<form:errors cssClass="err" path="gender"/>
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="age">나이</label></th>
 				<td>
 					<input type="text" name="age" class="form-control">
+					<form:errors cssClass="err" path="age"/>
 				</td>
 			</tr>
 			<tr>
@@ -87,6 +89,7 @@
 							<option value="${ d }"> ${ d }
 						</c:forEach>
 					</select>일
+					<form:errors cssClass="err" path="year"/>
 				</td>
 			</tr>
 			<tr>
@@ -105,18 +108,17 @@
 					-
 					<input type="text" name="hp3" class="form-control w20" value="${ member.hp3 }"><br>
 					<form:errors cssClass="err" path="hp1"/>
-					<form:errors cssClass="err" path="hp2"/>
-					<form:errors cssClass="err" path="hp3"/>
+					
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary">
 					<label for="add1">주소</label><br>
-					<label for="add2">세부주소</label>
 				</th>
 				<td>
 					<input type="text" name="add1" class="form-control" value="${ member.add1 }"><br>
 					<input type="text" name="add2" class="form-control" value="${ member.add2 }">
+					<form:errors cssClass="err" path="add1"/>
 				</td>
 			</tr>
 			<tr>
@@ -127,6 +129,7 @@
 						<c:if test="${ fn:contains(member.style,style) }">checked</c:if>
 						> ${ style }
 					</c:forEach>
+					<form:errors cssClass="err" path="style"/>
 				</td>
 			</tr>
 			<tr>
@@ -138,7 +141,7 @@
 						<option value="${cate.kind}">${cate.kind}(${cate.code })</option>  
 					</c:forEach>
 					</select>
-					<form:errors cssClass="err" path="category"/>
+					<form:errors cssClass="err" path="cat"/>
 				</td>
 			</tr>
 			

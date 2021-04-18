@@ -45,11 +45,13 @@ public class MemberRegisterController {
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)
 	public ModelAndView doAction(@Valid Member member, BindingResult result, HttpSession session) {
-		System.out.println("register");
+		
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
+			System.out.println("유효성 검사 오류");
 			List<Cate> list = cateDao.ListCate();
 			session.setAttribute("list", list);
+			System.out.println("getPage로");
 			mav.setViewName(getPage);
 			return mav;
 		}

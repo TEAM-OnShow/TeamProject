@@ -61,4 +61,13 @@ public class MemberDao {
 		return cnt;
 	}
 
+
+	public Integer yourStyle(String id) {
+		Integer styleNum = sqlSessionTemplate.selectOne(namespace+".YourStyle", id);
+		if(styleNum==null) {
+			styleNum = 0;
+		}
+		return styleNum;
+	}
+
 }
