@@ -1,7 +1,5 @@
 package reserve.controller;
 
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Map;
 import java.util.Set;
 
@@ -31,7 +29,7 @@ public class CartCalculatorController {
 	OrderDetailDao oddao; // 주문 상세 추가
 	
 	@RequestMapping(command)
-	public String doAction(HttpSession session, HttpServletResponse response) throws Exception {
+	public String doAction(HttpSession session, HttpServletResponse response) {
 		CartList cart = (CartList) session.getAttribute("cart"); // 장바구니 호출
 		Map<String, Integer> mapCart = cart.getAllOrderLists();
 		
@@ -56,15 +54,7 @@ public class CartCalculatorController {
 			oddao.insertData(odetail); // 주문 상세 테이블 추가
 		}
 		
-		session.setAttribute("cart", null);
-
-		PrintWriter pw = response.getWriter();
-		response.setContentType("text/html; charset=UTF-8");
-
-		pw.print("<script type='text/javascript'>");
-		pw.print("alert('결재 완료되었습니다.')");
-		pw.print("</script>");
-		pw.flush();
+		session.setAttribute("cart", null); // 장바구니 비우기
 		
 		return gotoPage;
 	}

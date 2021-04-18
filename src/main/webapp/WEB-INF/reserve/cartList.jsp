@@ -3,6 +3,13 @@
 <%@ include file="../common/user.jsp" %>
 
 <!-- cartList.jsp => 장바구니(결재하기, 둘러보기) -->
+<script type="text/javascript">
+	function account() {
+		alert("결재가 완료되었습니다.");
+		location.href = "account.re"
+	}
+</script>
+
 <style>
 	table {
 		width:80%;
@@ -52,7 +59,7 @@
 		</c:if>
 		<tr>
 			<td colspan="4" align=center>
-				<a class="btn btn-primary" href="account.re">결재하기</a> &nbsp; &nbsp;
+				<a class="btn btn-primary" href="javascript:account()">결재하기</a> &nbsp; &nbsp;
 				<a class="btn btn-success" href="userExhibit.ex">추가 주문</a>
 			</td>
 			<td align=center><b>총 금액 : <fmt:formatNumber pattern="#,###">${ totalAmount }</fmt:formatNumber> 원</b></td>
