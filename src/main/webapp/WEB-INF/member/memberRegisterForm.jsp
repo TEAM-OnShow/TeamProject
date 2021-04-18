@@ -20,15 +20,76 @@
 	}
 </style>
 
+<script type = "text/javascript">
+
+$(function(){
+	$('input[name="id"]').keydown(function(){
+//		alert(1);
+		$('#idmessage').css('display','none');
+		isCheck = false; // 
+	});
+
+});
+
+function duplicate(){ 
+//	alert($('input[name="id"]').val() );
+	isCheck = true;
+	
+	$.ajax({
+		url: "idcheck.me",//클라이언트가 요청 보낼 서버의 url주소
+		type : "get",
+		data:({
+			userid : $('input[name="id"]').val() 
+		}),//http요청과 함께 서버로 보낼 데이터
+		
+		
+		success:function(data){
+			
+			if($.trim(data) == 'YES'){
+				
+				$('#idmessage').html("<font color=red>사용 가능합니다.</font>");
+			
+				$('#idmessage').css('display','inline');
+				use = "possible";
+				isCheck = true;
+			}
+			else{
+				
+				$('#idmessage').html("<font color=red>이미 사용중인 아이디입니다.</font>");
+				$('#idmessage').show();
+				use = "impossible";
+				isCheck = false;
+
+			}
+		}
+	}); 
+} 
+
+function writeSave(){
+	if(isCheck == false){
+		alert("중복체크 하세요");
+		return false;
+	}
+	
+	if($('input[name="password"]').val() != $('input[name="repassword"]').val()){
+		alert("비밀번호 확인이 다릅니다.");
+		$('input[name="repassword"]').focus();
+		return false;
+	}
+}
+
+</script>
+
 <div class="container">
 	<h3 align=center style="padding:20px 0">회원가입</h3>
-	<form:form commandName="member" method="post" action="registerForm.me">
+	<form:form commandName="member" method="post" action="registerForm.me" onSubmit = "return writeSave()">
 		<table border=1 class="table table-secondary">
 			<tr>
 				<th width="25%" class="table-primary"><label for="id">아이디</label></th>
 				<td>
 					<input type="text" name="id" class="form-control" value="${ member.id }">
-					<form:errors cssClass="err" path="id"/>
+					<input type="button" id="id_check" value="Double check" onClick="return duplicate()"></input>
+					<span id="idmessage"></span>
 				</td>
 			</tr>
 			<tr>
@@ -107,7 +168,9 @@
 					<input type="text" name="hp2" class="form-control w20" value="${ member.hp2 }">
 					-
 					<input type="text" name="hp3" class="form-control w20" value="${ member.hp3 }"><br>
-					<form:errors cssClass="err" path="hp1"/>
+					<form:errors cssClass="err" path="hp1"/><br>
+					<form:errors cssClass="err" path="hp2"/><br>
+					<form:errors cssClass="err" path="hp3"/>
 					
 				</td>
 			</tr>
@@ -116,16 +179,17 @@
 					<label for="add1">주소</label><br>
 				</th>
 				<td>
-					<input type="text" name="add1" class="form-control" value="${ member.add1 }"><br>
-					<input type="text" name="add2" class="form-control" value="${ member.add2 }">
-					<form:errors cssClass="err" path="add1"/>
+					<input type="text" name="add1" class="form-control" value="${ member.add1 }">
+					<input type="text" name="add2" class="form-control" value="${ member.add2 }"><br>
+					<form:errors cssClass="err" path="add1"/><br>
+					<form:errors cssClass="err" path="add2"/>
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="style">취향</label></th>
 				<td>
 					<c:forEach var="style" items="<%=styleArr%>">
-						<input type="checkbox" name="style" value="${ style }" 
+						<input type="radio" name="style" value="${ style }" 
 						<c:if test="${ fn:contains(member.style,style) }">checked</c:if>
 						> ${ style }
 					</c:forEach>

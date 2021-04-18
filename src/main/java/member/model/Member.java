@@ -32,30 +32,30 @@ public class Member {
 	@NotBlank(message = "이메일을 입력해주세요.")
 	private String email;
 	
-	@NotNull(message = "핸드폰 번호를 입력해주세요.")
+	@NotNull(message = "앞 핸드폰 번호를 입력해주세요.")
 	private Integer hp1;
 	
-	@NotNull(message = "")
+	@NotNull(message = "중간 핸드폰 번호를 입력해주세요.")
 	private Integer hp2;
 	
-	@NotNull(message = "")
+	@NotNull(message = "끝 핸드폰 번호를 입력해주세요.")
 	private Integer hp3;
 	
-	@NotBlank(message = "필수기재사항")
+	@NotBlank(message = "주소를 입력해주세요.")
 	private String add1;
-	@NotBlank(message = "")
+	@NotBlank(message = "상세주소를 입력해주세요.")
 	private String add2;
 	
-	@NotEmpty(message = "선택필수")
+	@NotEmpty(message = "취향을 선택해주세요.")
 	private String style;
 	
-	@NotEmpty(message = "선택필수")
+	@NotEmpty(message = "관심 카테고리를 선택해주세요.")
 	private String cat;
 	
-	@NotNull(message = "필수기재사항")
+	@NotNull(message = "나이를 입력해주세요.")
 	private Integer age;
 	
-	@NotEmpty(message = "선택필수")
+	@NotEmpty(message = "성별을 선택해주세요.")
 	private String gender;
 	
 	public Member() {

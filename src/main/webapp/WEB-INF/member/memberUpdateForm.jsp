@@ -21,11 +21,22 @@
 	}
 </style>
 
+<script type = "text/javascript">
+function writeSave(){
+	
+	
+	if($('input[name="password"]').val() != $('input[name="repassword"]').val()){
+		alert("비밀번호 확인이 다릅니다.");
+		$('input[name="repassword"]').focus();
+		return false;
+	}
+}
 
+</script>
 
 <div class="container">
 	<h3 align=center style="padding:20px 0">마이페이지 수정</h3>
-	<form:form commandName="member" method="post" action="update.me">
+	<form:form commandName="member" method="post" action="update.me" onSubmit = "return writeSave()">
 	<input type="hidden" name="num" value="${member.num}">
 		<table border=1 class="table table-secondary">
 			<tr>
@@ -107,11 +118,13 @@
 				<th class="table-primary"><label for="hp1">핸드폰*</label></th>
 				<td>
 					<input type="text" name="hp1" class="form-control w20" value="${ member.hp1 }">
-					-
+					-					
 					<input type="text" name="hp2" class="form-control w20" value="${ member.hp2 }">
 					-
 					<input type="text" name="hp3" class="form-control w20" value="${ member.hp3 }"><br>
-					<form:errors cssClass="err" path="hp1"/>
+					<form:errors cssClass="err" path="hp1"/><br>
+					<form:errors cssClass="err" path="hp2"/><br>
+					<form:errors cssClass="err" path="hp3"/>
 				</td>
 			</tr>
 			<tr>
@@ -119,16 +132,17 @@
 					<label for="add1">주소*</label><br>
 				</th>
 				<td>
-					<input type="text" name="add1" class="form-control" value="${ member.add1 }"><br>
-					<input type="text" name="add2" class="form-control" value="${ member.add2 }">
-					<form:errors cssClass="err" path="add1"/>
+					<input type="text" name="add1" class="form-control" value="${ member.add1 }">
+					<input type="text" name="add2" class="form-control" value="${ member.add2 }"><br>
+					<form:errors cssClass="err" path="add1"/><br>
+					<form:errors cssClass="err" path="add2"/>
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="style">취향*</label></th>
 				<td>
 					<c:forEach var="style" items="<%=styleArr%>">
-						<input type="checkbox" name="style" value="${ style }" 
+						<input type="radio" name="style" value="${ style }" 
 						<c:if test="${ fn:contains(member.style,style) }">checked</c:if>
 						> ${ style }
 					</c:forEach>

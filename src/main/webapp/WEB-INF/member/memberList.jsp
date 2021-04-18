@@ -5,7 +5,9 @@
 회원 리스트 <br>
 <br>
 <h2 align="center">회원 리스트 화면</h2><br>
-	<center>
+
+
+<center>	
 		<form action ="list.me" method="get">
 			<select name="whatColumn">
 				<option value="all">전체 검색
@@ -42,7 +44,10 @@
 			</tr>
 		</c:forEach>
 	</table>
-
+	<center>
+	${pageInfo.pagingHtml }
+	</center>
+	
 
 
 

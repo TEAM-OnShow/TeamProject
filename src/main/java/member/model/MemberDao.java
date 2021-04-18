@@ -14,6 +14,7 @@ import utility.Paging;
 @Component("myMemberDao")
 public class MemberDao {
 	
+	private static MemberDao instance = null;
 	private String namespace = "member.model.Member";
 	
 	@Autowired
@@ -42,8 +43,8 @@ public class MemberDao {
 	}
 
 	public int getTotalCount(Map<String, String> map) {
-		// TODO Auto-generated method stub
-		return 0;
+		int cnt = sqlSessionTemplate.selectOne(namespace+".GetTotalCount",map);
+		return cnt;
 	}
 	
 	public Member findId(Member member) {
@@ -69,5 +70,33 @@ public class MemberDao {
 		}
 		return styleNum;
 	}
-
+	
+	public List<Integer> yourCat(String id) {
+		List<Integer> catNum = sqlSessionTemplate.selectList(namespace+".YourCat", id);
+		
+		return catNum;
+	}
+	
+	public boolean searchId(String userid) {
+		boolean flag = false;
+		System.out.println("sql start");
+		String user =sqlSessionTemplate.selectOne(namespace+".SearchId",userid);
+		System.out.println("sql complete");
+		if(user!=null) {
+			flag=true;
+			System.out.println("flag true");
+		}
+		System.out.println("flag false");
+		return flag;
+		
+	}
+	
+	public static MemberDao getInstance() throws Exception{
+		if(instance ==null) {
+			instance= new MemberDao();
+		}
+		System.out.println("instance:"+instance);
+		return instance;
+		
+	}
 }
