@@ -23,4 +23,9 @@ public class CartList { // 장바구니
 		return cart;
 	}
 	
+	public int deleteOrder(String pInfo) {
+		cart.remove(pInfo);
+		return cart.size();
+	}
+	
 }

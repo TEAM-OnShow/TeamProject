@@ -8,6 +8,13 @@
 		alert("결재가 완료되었습니다.");
 		location.href = "account.re"
 	}
+	
+	function deleteCart(p, n) {
+		result = confirm(n+" 상품을 삭제하십니까?");
+		if(result) {
+			location.href = "delete.re?pname="+n+"&pnum="+p;
+		}
+	}
 </script>
 
 <style>
@@ -50,7 +57,10 @@
 			<c:forEach var="cart" items="${ sessionScope.cartList }">
 			<tr>
 				<td align=center>${ cart.pnum }</td>
-				<td align=center>${ cart.pname }</td>
+				<td align=center>
+					${ cart.pname }
+					<input type="button" onclick="deleteCart(${ cart.pnum },'${ cart.pname }')" class="btn btn-primary btn-sm" value="삭제">
+				</td>
 				<td align=center>${ cart.oqty }</td>
 				<td align=right><fmt:formatNumber pattern="#,###">${ cart.price }</fmt:formatNumber> 원</td>
 				<td align=right><fmt:formatNumber pattern="#,###">${ cart.amount }</fmt:formatNumber> 원</td>

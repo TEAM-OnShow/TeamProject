@@ -14,6 +14,20 @@
 	<%
 	}
 %>
+
+<script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$(".ticketBtn").click(function(){
+			$(this).next().removeClass("hide");
+		});
+		
+		$(".ticket").click(function(){
+			$(this).addClass("hide");
+		});
+	});
+</script>
+
 <!-- orderDetailList.jsp => 주문 상세 목록 보기 : order table의 primary key로 해당 orderdetail 목록 출력
 로그인 id >> ${ loginInfo.id }<br> -->
 <style>
@@ -33,6 +47,31 @@
 	table a {
 		color: white;
 		font-weight: bold;
+	}
+	
+	.ticket img {
+		margin: 5px;
+		float: none;
+	}
+	
+	.ticket {
+		position: relative;
+		top: 0;
+		left: 0;
+		background: #fff;
+		margin-top: 5px;
+	}
+	
+	.ticket span {
+		position: absolute;
+		top: 2px;
+		right: 2px;
+		color: black;
+		line-height: 0.8;
+	}
+	
+	.hide {
+		display: none;
 	}
 </style>
 
@@ -55,10 +94,15 @@
 			<td align=center>${ status.count }</td>
 			<td>
 				<img src="<%=request.getContextPath()%>/resources/${ show.pimg }" width="100" height="100">
-				<div style="float:left; padding:5px">
+				<div style="float:left; padding:5px; line-height: 1.8;">
 					행 사 명 : ${ show.pname }<br>
 					관람날짜 : ${ show.oday }<br>
-					관람시간 : ${ show.otime }:00
+					관람시간 : ${ show.otime }:00<br>
+					<input type="button" class="ticketBtn btn btn-primary" value="바코드 보기">
+					<div class="hide ticket">
+						<span>X</span>
+						<img src="resources/image/barcode.png" width="150" height="50" alt="${ show.pname } (${ show.oday }/${ show.otime }:00)">
+					</div>
 				</div>
 			</td>
 			<td align=center>${ show.oqty }</td>

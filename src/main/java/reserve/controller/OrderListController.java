@@ -51,7 +51,7 @@ public class OrderListController {
 			
 			lists = orderDao.getAllData(map, pageInfo);
 			System.out.println(lists.size());
-			session.setAttribute("lists", lists);
+			session.setAttribute("olists", lists);
 			session.setAttribute("pageInfo", pageInfo);
 
 			return getPage;

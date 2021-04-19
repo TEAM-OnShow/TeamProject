@@ -47,13 +47,13 @@
 			<th>주문 일자</th>
 			<th width="20%">상세 보기</th>
 		</tr>
-		<c:if test="${ fn:length(lists) == 0 }">
+		<c:if test="${ fn:length(olists) == 0 }">
 			<tr class="table-secondary">
 				<c:if test="${ loginInfo.num == 0 }"><td colspan=4 align="center">주문 내역이 없습니다.</td></c:if>
 				<c:if test="${ loginInfo.num > 0 }"><td colspan=3 align="center">주문 내역이 없습니다.</td></c:if>
 			</tr>
 		</c:if>
-		<c:forEach var="od" items="${ lists }">
+		<c:forEach var="od" items="${ olists }">
 		<tr align=center class="table-secondary">
 			<td>${ od.onum }</td>
 			<c:if test="${ loginInfo.num == 0 }"><td>${ od.mid }</td></c:if>

@@ -32,7 +32,7 @@ public class CartListContoller { // 장바구니 목록 출력(상품 추가, 장바구니 링크)
 		}
 		
 		CartList cart = (CartList) session.getAttribute("cart"); // 장바구니 호출
-		
+		//System.out.println("controller => "+cart);
 		ArrayList<ShoppingInfo> cartList = new ArrayList<ShoppingInfo>(); // 장바구니 노출 정보
 		
 		int totalAmount = 0;
