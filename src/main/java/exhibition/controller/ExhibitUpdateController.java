@@ -2,11 +2,9 @@ package exhibition.controller;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +21,6 @@ import cate.model.Cate;
 import cate.model.CateDao;
 import exhibition.model.Exhibition;
 import exhibition.model.ExhibitionDao;
-import member.model.MemberDao;
 
 @Controller
 public class ExhibitUpdateController {
@@ -36,9 +33,6 @@ public class ExhibitUpdateController {
 	
 	@Autowired
 	ServletContext servletContext;
-	
-	@Autowired
-	private MemberDao memberDao;
 	
 	private final String command = "/exhibitUpdate.ex";
 	private final String gotoPage = "exhibitUpdateForm";
@@ -60,7 +54,7 @@ public class ExhibitUpdateController {
 	}
 	
 	@RequestMapping(value=command, method = RequestMethod.POST)
-	public ModelAndView doActionPOST(@Valid Exhibition exhibition, BindingResult result, HttpSession session,
+	public ModelAndView doActionPOST(@Valid Exhibition exhibition, BindingResult result,
 			@RequestParam(value="pageNumber")int pageNumber) {
 		
 		String img = exhibition.getImg();
@@ -80,7 +74,6 @@ public class ExhibitUpdateController {
 			
 		}else {
 			int count = edao.UpdateExhibition(exhibition);
-			
 			if(count == 1) {
 				File uploadFile = new File(uploadPath+"\\"+img); 
 				File deleteFile = new File(uploadPath+"\\"+upload2); 
@@ -100,24 +93,6 @@ public class ExhibitUpdateController {
 				
 			mav.addObject("pageNumber", pageNumber);	
 			mav.setViewName(viewPage);
-			List<Integer> styleNum = memberDao.yourStyle((String)session.getAttribute("loginId"));
-			
-			if(styleNum==null) {
-				System.out.println("스타일추천 없음");
-
-			} else {
-				System.out.println("스타일추천?"+ styleNum);
-				
-				 List<Exhibition> lists = new ArrayList<Exhibition>(); 
-				 for(int num : styleNum) {
-					 Exhibition exhibit = edao.DetailExhibition(num); 
-					 lists.add(exhibit);
-					 System.out.println("전시회명: "+exhibit.getName()); 
-				}
-				 
-				session.setAttribute("lists", lists);
-			}
-
 			return mav;
 		} else {
 			mav.addObject("pageNumber", pageNumber);
