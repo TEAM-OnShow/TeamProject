@@ -87,29 +87,29 @@ function writeSave(){
 			<tr>
 				<th width="25%" class="table-primary"><label for="id">아이디</label></th>
 				<td>
-					<input type="text" name="id" class="form-control" value="${ member.id }">
-					<input type="button" id="id_check" value="Double check" onClick="return duplicate()"></input>
+					<input type="text" name="id" class="form-control w20" value="${ member.id }">&emsp;
+					<input type="button" id="id_check" class="btn btn-primary" value="중복 체크" onClick="return duplicate()"></input>
 					<span id="idmessage"></span>
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="password">비밀번호</label></th>
 				<td>
-					<input type="password" name="password" class="form-control" value="${ member.password }">
+					<input type="password" name="password" class="form-control w20" value="${ member.password }">
 					<form:errors cssClass="err" path="password"/>
 				</td>
 			</tr>	
 			<tr>
 				<th class="table-primary"><label for="repassword">비밀번호 확인</label></th>
 				<td>
-					<input type="password" name="repassword" class="form-control">
+					<input type="password" name="repassword" class="form-control w20">
 					<form:errors cssClass="err" path="repassword"/>
 				</td>
 			</tr>	
 			<tr>
 				<th class="table-primary"><label for="name">이름</label></th>
 				<td>
-					<input type="text" name="name" class="form-control" value="${ member.name }">
+					<input type="text" name="name" class="form-control w20" value="${ member.name }">
 					<form:errors cssClass="err" path="name"/>
 				</td>
 			</tr>
@@ -124,7 +124,7 @@ function writeSave(){
 			<tr>
 				<th class="table-primary"><label for="age">나이</label></th>
 				<td>
-					<input type="text" name="age" class="form-control" value="${member.age }">
+					<input type="text" name="age" class="form-control w20" value="${member.age }">
 					<form:errors cssClass="err" path="age"/>
 				</td>
 			</tr>
@@ -181,8 +181,8 @@ function writeSave(){
 				</th>
 				<td>
 					<input type="text" name="add1" class="form-control" value="${ member.add1 }">
-					<input type="text" name="add2" class="form-control" value="${ member.add2 }"><br>
 					<form:errors cssClass="err" path="add1"/><br>
+					<input type="text" name="add2" class="form-control" value="${ member.add2 }"><br>
 					<form:errors cssClass="err" path="add2"/>
 				</td>
 			</tr>
@@ -200,7 +200,7 @@ function writeSave(){
 			<tr>
 				<th class="table-primary"><label for="cat">관심 카테고리</label></th>
 				<td>
-					<select name="cat">
+					<select name="cat" class="form-control w20">
 						<option value="">선택
 					<c:forEach var="cate" items="${list }">
 						<option value="${cate.kind}"  <c:if test="${member.cat == cate.kind}">selected</c:if>>${cate.kind}(${cate.code })</option>  
@@ -218,3 +218,6 @@ function writeSave(){
 		</table>
 	</form:form>
 </div>
+
+<!-- footer -->
+<%@ include file="../common/footer.jsp" %>

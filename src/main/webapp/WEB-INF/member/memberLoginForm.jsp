@@ -32,23 +32,23 @@
 <div class="container">
 
 <form method="post" action="loginForm.me">
-	<table border="1" class="table table-secondary">
+	<table border="1" class="table table-secondary" style="width:auto;margin: 0 auto;">
 		<tr>
-			<td>아이디</td>
+			<td class="table-primary">아이디</td>
 			<td><input type="text" name="id" value="coco"></td>
 		</tr>
 		
 		<tr>
-			<td>비번</td>
+			<td class="table-primary">비번</td>
 			<td><input type="text" name="password" value="1234"></td>
 		</tr>
 		
 		<tr>
-			<td colspan="2">
-				<input type="submit" value="로그인">
-				<input type="button" value="회원가입" onClick="register()">
-				<input type="button" value="아이디찾기" onClick="findId()">
-				<input type="button" value="비밀번호찾기" onClick="findPw()">
+			<td colspan="2" class="table-primary">
+				<input class="btn btn-success" type="submit" value="로그인">
+				<input class="btn btn-secondary" type="button" value="회원가입" onClick="register()">
+				<input class="btn btn-secondary" type="button" value="아이디찾기" onClick="findId()">
+				<input class="btn btn-secondary" type="button" value="비밀번호찾기" onClick="findPw()">
 			</td>
 		</tr>
 	</table>
