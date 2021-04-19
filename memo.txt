@@ -70,7 +70,7 @@ minvalue 1
 maxvalue 10000
 nocache;
 
-drop table cate purge;
+drop table cate cascade constraints;
 
 create table cate(
 	num number primary key,
@@ -88,7 +88,7 @@ insert into cate
 values(cate_seq.nextval,'가전','E01');
 
 -- exhibition : 전시/박람 테이블
-drop sequence ex_seq ;
+drop sequence ex_seq;
 create sequence ex_seq
 increment by 1
 start with 1
@@ -133,7 +133,7 @@ create table orders(
 drop sequence seqodetail;
 create sequence seqodetail start with 1 increment by 1 nocache ;
 
-drop table orderdetail purge;
+drop table orderdetail cascade constraints;
 
 create table orderdetail(
   odnum number primary key,
@@ -147,7 +147,7 @@ create table orderdetail(
 commit;
 
 --공지사항 테이블
-drop table notice;
+drop table notice cascade constraints;
 create table notice(
   no number primary key,
   title varchar2(100) not null,
@@ -166,7 +166,7 @@ create sequence notice_seq
   nocache;
   
 --qna 테이블
-drop table qna;
+drop table qna cascade constraints;
 create table qna(
   no number primary key,
   category varchar2(30) not null,
@@ -193,7 +193,7 @@ create sequence inq_seq
   maxvalue 10000
   nocache;
 
-drop table inquiry;
+drop table inquiry cascade constraints;
 create table inquiry(
 num number primary key,
 id references members(id) on delete cascade,

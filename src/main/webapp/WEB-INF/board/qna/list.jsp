@@ -24,8 +24,7 @@
 			$(".title").next().addClass("hide");
 			$(this).next().removeClass("hide")
 		}); 
-	}); 
-    
+	});
 </script>
 
 <head>
