@@ -1,7 +1,4 @@
-C:\ca_java_2011\Spring\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\TeamProject\resources
-
-4/18 16:20 초원수정
-4/19 10:37 수연올림
+4/19 22:30 초원메모장만 수정  
 
 drop sequence mseq;
 create sequence mseq
@@ -207,3 +204,5 @@ ref number,
 restep number default 0,
 ip varchar2(20)
 );
+
+commit;

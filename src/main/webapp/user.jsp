@@ -227,4 +227,3 @@ $(function(){
 
 <!-- footer -->
 <%@ include file="./WEB-INF/common/footer.jsp" %>
-
