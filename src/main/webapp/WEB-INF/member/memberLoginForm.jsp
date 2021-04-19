@@ -32,7 +32,7 @@
 <div class="container">
 
 <form method="post" action="loginForm.me">
-	<table border="1">
+	<table border="1" class="table table-secondary">
 		<tr>
 			<td>아이디</td>
 			<td><input type="text" name="id" value="coco"></td>
