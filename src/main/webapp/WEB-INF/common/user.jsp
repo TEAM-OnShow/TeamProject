@@ -66,18 +66,19 @@
 <!-- 네비 메뉴바 -->
 <div align="center">
 <nav class="navbar navbar-expand-lg border-bottom border-light my-3 pb-2">
-	<button class="navbar-toggler" type="button" data-toggle="collapse"	data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
+	<a class="navbar-brand" href="#"></a>
+	<button class="navbar-toggler" style="color: primary; font-size: 2rem" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    	<i class="bi bi-card-list"></i>
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarColor01">
 		<ul class="navbar-nav text-center m-auto">
-			<li class="nav-item dropdown mx-5">
+			<li class="nav-item dropdown active mx-5">
 				<a class="nav-link dropdown-toggle afont" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">회사소개</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="info.com">회사소개</a>
-						<a class="dropdown-item" href="location.com">찾아오시는길</a>
-						<a class="dropdown-item" href="ceo.com">대표이사</a>
+					<a class="dropdown-item" href="location.com">찾아오시는길</a>
+					<a class="dropdown-item" href="ceo.com">대표이사</a>
 				</div>
 			</li>
 
@@ -94,7 +95,14 @@
 				<a class="nav-link dropdown-toggle afont" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">회원페이지</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="info.me">내정보</a>
-            		<a class="dropdown-item" href="update.me?num=${loginInfo.num }">회원정보수정</a>
+					<c:choose>
+					<c:when test="${sessionScope.loginId==null }">
+            						<a class="dropdown-item" href="loginForm.me">회원정보수정</a>
+            					</c:when>
+            					<c:otherwise>
+            						<a class="dropdown-item" href="update.me?num=${loginInfo.num}">회원정보수정</a>
+            					</c:otherwise>
+            					</c:choose>
 					<a class="dropdown-item" href="order.re">구매내역</a>
 					<a class="dropdown-item" href="list.inq?whatColumn=id&keyword=${sessionScope.loginId}&mylist=1">문의내역</a>
 				</div>
