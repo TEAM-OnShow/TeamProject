@@ -27,7 +27,10 @@ public class InqWriteController {
 	InquiryDao inqDao;
 	
 	@RequestMapping(value = "/inqwrite.inq", method = RequestMethod.GET)
-	public String doAction() {
+	public String doAction(HttpSession session) {
+		if(session.getAttribute("loginId")==null) {
+			return "redirect:/loginForm.me";
+		}
 		return "inquiry_form";
 	}
 	

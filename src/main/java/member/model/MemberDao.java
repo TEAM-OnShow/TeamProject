@@ -62,12 +62,9 @@ public class MemberDao {
 		return cnt;
 	}
 
-
-	public Integer yourStyle(String id) {
-		Integer styleNum = sqlSessionTemplate.selectOne(namespace+".YourStyle", id);
-		if(styleNum==null) {
-			styleNum = 0;
-		}
+	public List<Integer> yourStyle(String id) {
+		RowBounds rowbounds = new RowBounds(0,3);
+		List<Integer> styleNum = sqlSessionTemplate.selectList(namespace+".YourStyle", id, rowbounds);
 		return styleNum;
 	}
 	

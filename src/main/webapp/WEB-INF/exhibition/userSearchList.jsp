@@ -37,3 +37,4 @@
 		</td>
 	</tr>
 </table>
+<%@ include file="../../WEB-INF/common/footer.jsp" %>

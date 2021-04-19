@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="./../common/user.jsp" %>
     
-findPwForm.jsp<br>
 <h2>비밀번호찾기</h2>
 
 	<form:form commandName = "member" method="post" action ="findPw.me">
@@ -29,3 +28,5 @@ findPwForm.jsp<br>
 			<input type="submit" value="비밀번호 찾기">
 		</p>
 	</form:form>
+	
+	<%@ include file="../../WEB-INF/common/footer.jsp" %>

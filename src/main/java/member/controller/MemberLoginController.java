@@ -2,6 +2,7 @@ package member.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,10 +11,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import exhibition.model.Exhibition;
+import exhibition.model.ExhibitionDao;
 import member.model.Member;
 import member.model.MemberDao;
 
@@ -25,6 +29,8 @@ public class MemberLoginController {
 	
 	@Autowired
 	private MemberDao memberDao;
+	@Autowired
+	private ExhibitionDao edao;
 	
 	@RequestMapping(value=command, method=RequestMethod.GET) 
 	public String doAction() {
@@ -32,7 +38,7 @@ public class MemberLoginController {
 	}
 	
 	@RequestMapping(value=command, method=RequestMethod.POST)
-	public ModelAndView doAction( 
+	public ModelAndView doAction( 	Model model,
 									HttpServletRequest request, 
 									HttpServletResponse response,
 									HttpSession session) throws IOException {
@@ -66,15 +72,21 @@ public class MemberLoginController {
 			
 				} else {
 					System.out.println("회원의 아이디는 "+member.getId());
-					Integer styleNum = memberDao.yourStyle(member.getId());
+					List<Integer> styleNum = memberDao.yourStyle(member.getId());
 										
-					if(styleNum==0) {
+					if(styleNum==null) {
 						mav.setViewName("redirect:/user.jsp");
 						System.out.println("스타일추천 없음");
 
 					} else {
 						System.out.println("스타일추천?"+ styleNum);
-						mav.addObject("aa", styleNum);
+						
+						 List<Exhibition> lists = new ArrayList<Exhibition>(); 
+						 for(int num : styleNum){
+							 Exhibition exhibit = edao.DetailExhibition(num); lists.add(exhibit);
+							 System.out.println("전시회명: "+exhibit.getName()); 
+						}
+						session.setAttribute("lists", lists);
 						mav.setViewName("redirect:/user.jsp");
 					}
 				}

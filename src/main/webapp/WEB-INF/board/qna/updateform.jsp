@@ -111,3 +111,4 @@
 </body>
 
 </html>
+<%@ include file="../../../WEB-INF/common/footer.jsp" %>

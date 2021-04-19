@@ -44,38 +44,6 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<center>
-	${pageInfo.pagingHtml }
-	</center>
+	<ul class="pagination justify-content-center mt-5">${pageInfo.pagingHtml}</ul>
 	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<%@ include file="../../WEB-INF/common/footer.jsp" %>

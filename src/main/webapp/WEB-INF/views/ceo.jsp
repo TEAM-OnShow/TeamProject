@@ -24,5 +24,6 @@
 	<br>
 	<img src="resources/image/company_ceo.jpg" width="100%" height="400">
 	<!-- <a href="https://pixabay.com/ko/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1063442">Pixabay</a>로부터 입수된 <a href="https://pixabay.com/ko/users/geralt-9301/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=1063442">Gerd Altmann</a>님의 이미지 입니다. -->
-	
 </div>
+
+<%@ include file="../../WEB-INF/common/footer.jsp" %>

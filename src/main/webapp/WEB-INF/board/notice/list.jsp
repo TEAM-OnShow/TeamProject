@@ -80,6 +80,6 @@
 	</c:if>
 	
   <ul class="pagination justify-content-center">${pageInfo.pagingHtml}</ul>
-  
 </body>
 </html>
+<%@ include file="../../../WEB-INF/common/footer.jsp" %>

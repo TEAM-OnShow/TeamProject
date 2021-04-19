@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/user.jsp" %>    
-    
-<!-- memberInfo.jsp<br> -->
 
 <script type="text/javascript">
 
@@ -69,3 +67,4 @@
 		</tr>
 	</table>
 </div>
+<%@ include file="../../WEB-INF/common/footer.jsp" %>

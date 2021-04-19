@@ -63,3 +63,4 @@
 		</ul>
 	</div>
 </div>
+<%@ include file="../../WEB-INF/common/footer.jsp" %>

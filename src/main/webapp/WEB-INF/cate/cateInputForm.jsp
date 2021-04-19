@@ -40,4 +40,5 @@
 	</table>
 </form:form>
 </div>
+<%@ include file="../../WEB-INF/common/footer.jsp" %>
 

@@ -4,6 +4,16 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="member.model.Member">
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from members
+		<if test="whatColumn == 'id'">
+			where id like #{keyword}
+		</if>
+		<if test="whatColumn == 'name'">
+			where name like #{keyword}
+		</if>
+	</select>
+	
 	<insert id="InsertMember">
 		insert into members(num, id, password, repassword, name, year, month, day, email, hp1, hp2, hp3, add1, add2, style, cat, age, gender)
 		values(mseq.nextval,#{id},#{password},#{repassword},#{name},#{year},#{month},#{day},#{email},#{hp1},#{hp2},#{hp3},#{add1},#{add2},#{style},#{cat},#{age},#{gender})
@@ -56,4 +66,16 @@
 		where m.id=#{id}
 	</select>
 	
+	<select id = "YourCat" resultType = "Integer">
+		select e.num
+		from members m join exhibition e
+		on m.cat = e.category
+		where m.id=#{id}
+	</select>
+	
+	<select id ="SearchId" resultType = "String">
+		select id
+		from members
+		where id=#{id}
+	</select>
 </mapper>	

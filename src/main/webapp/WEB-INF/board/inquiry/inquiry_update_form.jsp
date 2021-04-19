@@ -1,4 +1,3 @@
-<%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,20 +18,20 @@
 			font-size: 12px;
 		}
 	</style>
-	<%
-		Member loginInfo = (Member) session.getAttribute("loginInfo");
-		if(loginInfo == null) {
+		<%
+		String loginId = (String) session.getAttribute("loginId");
+		if(loginId == null) {
 		%>
 			<%@ include file="../../common/user.jsp" %>
 		<% 	
 		} else {
-		   if(loginInfo.getNum()!=0) {
+		   if(loginId.equals("penguin")) {
 		   %>
-		      <%@ include file="../../common/user.jsp" %>
+		      <%@ include file="../../common/admin.jsp" %>
 		   <% 
 		   } else {
 		   %>
-		      <%@ include file="../../common/admin.jsp" %>
+		      <%@ include file="../../common/user.jsp" %>
 		   <%
 		   }
 		}
@@ -105,6 +104,4 @@
 </body>
 
 </html>
-
-
-
+<%@ include file="../../../WEB-INF/common/footer.jsp" %>

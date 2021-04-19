@@ -67,8 +67,7 @@
 	</table>
 	<%-- <input type="button" value="메인으로" onClick="location.href='<%=main%>'"> --%>
 	<div style="width: fit-content; margin: 0 auto;">
-		<ul class="pagination">
-			${ pageInfo.pagingHtml }
-		</ul>
+		<ul class="pagination justify-content-center">${pageInfo.pagingHtml}</ul>
 	</div>
 </div>
+<%@ include file="../../WEB-INF/common/footer.jsp" %>
