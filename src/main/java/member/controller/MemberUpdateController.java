@@ -2,6 +2,7 @@ package member.controller;
 
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpSession;
 
 import cate.model.Cate;
 import cate.model.CateDao;
+import exhibition.model.Exhibition;
 import exhibition.model.ExhibitionDao;
 import member.model.Member;
 import member.model.MemberDao;
@@ -32,14 +34,15 @@ public class MemberUpdateController {
 	
 	@Autowired
 	private CateDao cdao;
-
 	
 	@Autowired
 	private MemberDao memberDao;
 	
+	@Autowired
+	private ExhibitionDao edao;
+	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doAction(@RequestParam(value="num")int num, HttpSession session, Model model) {
-		
 		List<Cate> list = cdao.ListCate();
 		Member member = memberDao.getData((String)session.getAttribute("loginId"));
 		model.addAttribute("member", member);
@@ -48,34 +51,45 @@ public class MemberUpdateController {
 //		Member member = MemberDao.getDataByNum(num);
 //		model.addAttribute("member",member);
 		return getPage;
-	} 
+	}
 	
 	@RequestMapping(value=command,method=RequestMethod.POST)
-	public ModelAndView doAction(@ModelAttribute("member") @Valid Member member, BindingResult result) {
+	public ModelAndView doAction(@ModelAttribute("member") @Valid Member member, BindingResult result, HttpSession session) {
 		
 		ModelAndView mav = new ModelAndView();
 		System.out.println("num:"+member.getYear());
 		
-		List<Cate> list = cdao.ListCate();
-		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류");
-			mav.addObject("list", list);
 			mav.setViewName(getPage);
 			return mav;
 		}else {
 			System.out.println("업데이트 됐나?");
 
 			int cnt = memberDao.updateData(member);
-			
+			mav.setViewName(gotoPage);
 			if(cnt==1) {
 			System.out.println("업데이트 됐다");
-
-			mav.setViewName(gotoPage);
-			return mav;
-			}
+			List<Integer> styleNum = memberDao.yourStyle(member.getId());
 			
+			if(styleNum==null) {
+				System.out.println("스타일추천 없음");
+
+			} else {
+				System.out.println("스타일추천?"+ styleNum);
+				
+				 List<Exhibition> lists = new ArrayList<Exhibition>(); 
+				 for(int num : styleNum) {
+					 Exhibition exhibit = edao.DetailExhibition(num); 
+					 lists.add(exhibit);
+					 System.out.println("전시회명: "+exhibit.getName()); 
+				}//for
+				session.setAttribute("lists", lists);
+			}//style if문
 			return mav;
-		}
+			}//int==1 if문
+			return mav;
+			
+		}//업데이트되었냐?
 	}
 }
