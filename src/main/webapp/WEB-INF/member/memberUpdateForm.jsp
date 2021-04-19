@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ include file="./../common/user.jsp" %>
 
 <%
 	String[] styleArr = {"현대적인", "예술적인","감각적인","실용적인","에너지넘치는","감성적인"};
 %>
-
 
 <style type="text/css">
 	.err{
@@ -24,21 +22,19 @@
 <script type = "text/javascript">
 function writeSave(){
 	
-	
 	if($('input[name="password"]').val() != $('input[name="repassword"]').val()){
 		alert("비밀번호 확인이 다릅니다.");
 		$('input[name="repassword"]').focus();
 		return false;
 	}
 }
-
 </script>
 
 <div class="container">
 	<h3 align=center style="padding:20px 0">마이페이지 수정</h3>
 	<form:form commandName="member" method="post" action="update.me" onSubmit = "return writeSave()">
 	<input type="hidden" name="num" value="${member.num}">
-		<table border=1 class="table table-secondary">
+		<table border=1 frame="void" class="table table-secondary">
 			<tr>
 				<th width="25%" class="table-primary"><label for="id">아이디</label></th>
 				<td>
@@ -56,7 +52,7 @@ function writeSave(){
 			<tr>
 				<th class="table-primary"><label for="repassword">비밀번호 확인*</label></th>
 				<td>
-					<input type="password" name="repassword" class="form-control" value="${ member.repassword}">
+					<input type="password" name="repassword" class="form-control">
 					<form:errors cssClass="err" path="repassword"/>
 				</td>
 			</tr>	
@@ -133,8 +129,8 @@ function writeSave(){
 				</th>
 				<td>
 					<input type="text" name="add1" class="form-control" value="${ member.add1 }">
-					<input type="text" name="add2" class="form-control" value="${ member.add2 }"><br>
 					<form:errors cssClass="err" path="add1"/><br>
+					<input type="text" name="add2" class="form-control" value="${ member.add2 }"><br>
 					<form:errors cssClass="err" path="add2"/>
 				</td>
 			</tr>
@@ -155,7 +151,7 @@ function writeSave(){
 					<select name="cat">
 						<option value="">선택
 					<c:forEach var="cate" items="${list }">
-						<option value="${cate.kind}">${cate.kind}(${cate.code })</option>  
+						<option value="${cate.kind}" <c:if test="${member.cat == cate.kind}">selected</c:if> >${cate.kind}(${cate.code })</option>  
 					</c:forEach>
 					</select>
 					<form:errors cssClass="err" path="cat"/>
@@ -170,4 +166,3 @@ function writeSave(){
 		</table>
 	</form:form>
 </div>
-<%@ include file="../../WEB-INF/common/footer.jsp" %>

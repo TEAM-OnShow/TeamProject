@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
-<%@include file="./../common/common.jsp"%>
-회원 리스트 <br>
+    pageEncoding="UTF-8"%>   
+<%@include file="./../common/admin.jsp"%>
+
 <br>
 <h2 align="center">회원 리스트 화면</h2><br>
 
@@ -19,13 +18,13 @@
 			<input type="submit" value="검색">
 		</form>
 	</center>
-	
-	<table border="1" align="center" width="60%">
-		<tr>
-			<th align="center"><span>회원번호</span></th>
-			<th align="center"><span>회원아이디</span></th>
-			<th align="center"><span>회원이름</span></th>
-			<th align="center"><span>회원삭제</span></th>	
+<div class="container">
+	<table class="table" border="1" align="center" width="60%">
+		<tr class="table-primary">
+			<td align="center"><b>회원번호</b></td>
+			<td align="center"><b>회원아이디</b></td>
+			<td align="center"><b>회원이름</b></td>
+			<td align="center"><b>회원삭제</b></td>	
 		</tr>
 		<c:forEach items="${memberLists}" var = "member">
 			<tr>
@@ -45,5 +44,5 @@
 		</c:forEach>
 	</table>
 	<ul class="pagination justify-content-center mt-5">${pageInfo.pagingHtml}</ul>
-	
+</div>	
 <%@ include file="../../WEB-INF/common/footer.jsp" %>

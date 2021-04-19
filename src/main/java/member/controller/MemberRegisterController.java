@@ -51,7 +51,7 @@ public class MemberRegisterController {
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류");
 			List<Cate> list = cateDao.ListCate();
-			session.setAttribute("list", list);
+			mav.addObject("list", list);
 			System.out.println("getPage로");
 			mav.setViewName(getPage);
 			return mav;

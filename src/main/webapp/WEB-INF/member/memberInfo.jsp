@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/user.jsp" %>    
+    
+<!-- memberInfo.jsp<br> -->
 
 <script type="text/javascript">
 
@@ -10,11 +12,10 @@
 	}
 </script>
 
-
 <div class="container">
 	<h3 align=center style="padding:20px 0">내정보(마이페이지)</h3>
 
-	<table border="1" class="table">
+	<table border="1" frame="void" class="table">
 		<tr>
 			<th class="table-secondary" width="30%">이름</th>
 			<td>${member.name}</td>
@@ -22,10 +23,6 @@
 		<tr>
 			<th class="table-secondary">아이디</th>
 			<td>${member.id}</td>
-		</tr>
-		<tr>
-			<th class="table-secondary">비밀번호</th>
-			<td>${member.password}</td>
 		</tr>
 		<tr>
 			<th class="table-secondary">나이</th>
@@ -67,4 +64,3 @@
 		</tr>
 	</table>
 </div>
-<%@ include file="../../WEB-INF/common/footer.jsp" %>

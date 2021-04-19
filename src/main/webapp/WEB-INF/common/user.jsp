@@ -94,7 +94,7 @@
 				<a class="nav-link dropdown-toggle afont" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">회원페이지</a>
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="info.me">내정보</a>
-            		<a class="dropdown-item" href="update.me">회원정보수정</a>
+            		<a class="dropdown-item" href="update.me?num=${loginInfo.num }">회원정보수정</a>
 					<a class="dropdown-item" href="order.re">구매내역</a>
 					<a class="dropdown-item" href="list.inq?whatColumn=id&keyword=${sessionScope.loginId}&mylist=1">문의내역</a>
 				</div>

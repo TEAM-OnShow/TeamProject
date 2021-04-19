@@ -39,6 +39,7 @@ public class MemberUpdateController {
 	
 	@RequestMapping(value=command, method=RequestMethod.GET)
 	public String doAction(@RequestParam(value="num")int num, HttpSession session, Model model) {
+		
 		List<Cate> list = cdao.ListCate();
 		Member member = memberDao.getData((String)session.getAttribute("loginId"));
 		model.addAttribute("member", member);
@@ -47,7 +48,7 @@ public class MemberUpdateController {
 //		Member member = MemberDao.getDataByNum(num);
 //		model.addAttribute("member",member);
 		return getPage;
-	}
+	} 
 	
 	@RequestMapping(value=command,method=RequestMethod.POST)
 	public ModelAndView doAction(@ModelAttribute("member") @Valid Member member, BindingResult result) {
@@ -55,8 +56,11 @@ public class MemberUpdateController {
 		ModelAndView mav = new ModelAndView();
 		System.out.println("num:"+member.getYear());
 		
+		List<Cate> list = cdao.ListCate();
+		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류");
+			mav.addObject("list", list);
 			mav.setViewName(getPage);
 			return mav;
 		}else {

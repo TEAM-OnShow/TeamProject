@@ -116,15 +116,15 @@ function writeSave(){
 			<tr>
 				<th class="table-primary"><label for="gender">성별</label></th>
 				<td>
-					<input type="radio" name="gender" value="남자"> 남자
-					<input type="radio" name="gender" value="여자"> 여자
+					<input type="radio" name="gender" value="남자" <c:if test="${ member.gender == '남자'}"> checked</c:if>> 남자
+					<input type="radio" name="gender" value="여자 " <c:if test="${ member.gender == '여자'}"> checked</c:if>> 여자
 					<form:errors cssClass="err" path="gender"/>
 				</td>
 			</tr>
 			<tr>
 				<th class="table-primary"><label for="age">나이</label></th>
 				<td>
-					<input type="text" name="age" class="form-control">
+					<input type="text" name="age" class="form-control" value="${member.age }">
 					<form:errors cssClass="err" path="age"/>
 				</td>
 			</tr>
@@ -134,23 +134,24 @@ function writeSave(){
 					<select name="year" class="form-control w20">
 						<c:forEach begin="1910" end="2021" var="y">
 							<option value="${ y }"
-							<c:if test="${ y == 1990 }"> selected</c:if>
-							> ${ y }
+							<c:if test="${ y == member.year }"> selected</c:if>> ${ y }
 						</c:forEach>
 					</select>년 
 					
 					<select name="month" class="form-control w20">
 						<c:forEach begin="1" end="12" var="m">
-							<option value="${ m }"> ${ m }
+							<option value="${ m }" <c:if test="${ m == member.month }"> selected</c:if> > ${ m }
 						</c:forEach>
 					</select>월 
 					
 					<select name="day" class="form-control w20">
 						<c:forEach begin="1" end="31" var="d">
-							<option value="${ d }"> ${ d }
+							<option value="${ d }"<c:if test="${ d == member.day }"> selected</c:if>> ${ d }
 						</c:forEach>
 					</select>일
 					<form:errors cssClass="err" path="year"/>
+					<form:errors cssClass="err" path="month"/>
+					<form:errors cssClass="err" path="day"/>
 				</td>
 			</tr>
 			<tr>
@@ -202,7 +203,7 @@ function writeSave(){
 					<select name="cat">
 						<option value="">선택
 					<c:forEach var="cate" items="${list }">
-						<option value="${cate.kind}">${cate.kind}(${cate.code })</option>  
+						<option value="${cate.kind}"  <c:if test="${member.cat == cate.kind}">selected</c:if>>${cate.kind}(${cate.code })</option>  
 					</c:forEach>
 					</select>
 					<form:errors cssClass="err" path="cat"/>
@@ -217,4 +218,3 @@ function writeSave(){
 		</table>
 	</form:form>
 </div>
-<%@ include file="../../WEB-INF/common/footer.jsp" %>
