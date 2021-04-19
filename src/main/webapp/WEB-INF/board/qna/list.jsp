@@ -11,15 +11,20 @@
 		background-color: #EAEAEA;
 	}
     .title{cursor:pointer;}
+    
+    .hide {
+    	display: none;
+    }
 </style>
 
 <script src="${pageContext.request.contextPath}/resources/js/jquery.js"></script>
 <script>
-/* 	$(document).ready(function(){
-		  $("#title").click(function(){
-		    $("#hide").toggle();
-		  }); 
-		}); */
+ 	$(document).ready(function(){
+		$(".title").click(function(){
+			$(".title").next().addClass("hide");
+			$(this).next().removeClass("hide")
+		}); 
+	}); 
     
 </script>
 
@@ -74,7 +79,7 @@
   			<div class=col-2>${qna.category}</div>
   			<div class="col-8 pl-4" align="left">
   				<p class="title" id="title">${qna.question}</p>
-  				<p id="hide" style="white-space:pre">${qna.answer}</p>
+  				<p class="hide" style="white-space:pre">${qna.answer}</p>
   				
   				<!-- 버튼: 관리자만 수정,삭제 가능 -->
   				<c:if test="${sessionScope.loginId=='penguin'}">
