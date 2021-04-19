@@ -17,7 +17,7 @@
 <div class="container">
 <table border="1" frame="void" class="table table-secondary">
 	<tr align="center" class="table-secondary">
-		<td> <b style=font-size:25pt;>[예정 월]</b><br><br>
+		<td> <b style=font-size:25pt;>[Month]</b><br><br>
 			<table align="center">
 					<c:forEach var="i" begin="<%=daym %>" end="12">
 						<tr class="table-primary" align="center">

@@ -10,10 +10,10 @@
 				<tr align="center">
 					<%
 						int cnt = 0;
-					%>
+					%>  
 					<c:if test="${fn:length(mlist) == 0 }">
 						<td>	
-							<b style=font-size:25pt;color:#00FFFF;>등록된 예정행사 없음</b>
+							<b style=font-size:25pt;color:white;>등록된 예정행사 없음</b>
 						</td>	
 					</c:if>
 					<c:forEach var="exhibit" items="${mlist }">

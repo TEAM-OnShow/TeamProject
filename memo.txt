@@ -76,13 +76,19 @@ create table cate(
 );
 
 insert into cate 
-values(cate_seq.nextval,'뷰티','B01');
+values(cate_seq.nextval,'유아','C01');
 insert into cate 
-values(cate_seq.nextval,'여행','T01');
+values(cate_seq.nextval,'책','B01');
 insert into cate 
-values(cate_seq.nextval,'가구','F01');
+values(cate_seq.nextval,'애완동물','P01');
 insert into cate 
-values(cate_seq.nextval,'가전','E01');
+values(cate_seq.nextval,'꽃','F02');
+insert into cate 
+values(cate_seq.nextval,'정원','G01');
+insert into cate 
+values(cate_seq.nextval,'직업','J01');
+insert into cate 
+values(cate_seq.nextval,'티','T02');
 
 -- exhibition : 전시/박람 테이블
 drop sequence ex_seq;
