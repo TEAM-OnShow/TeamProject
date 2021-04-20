@@ -32,7 +32,7 @@
 </style>
 
 <div class="container">
-	<h3 align=center style="padding:20px 0">주문 내역</h3>
+	<h3 align=center style="padding:20px 0">구매 내역</h3>
 	<table border=1>
 		<c:if test="${ loginInfo.num > 0 }">
 		<tr>
@@ -53,7 +53,7 @@
 				<c:if test="${ loginInfo.num > 0 }"><td colspan=3 align="center">주문 내역이 없습니다.</td></c:if>
 			</tr>
 		</c:if>
-		<c:forEach var="od" items="${ olists }">
+		<c:forEach var="od" items="${ olists }" varStatus="order">
 		<tr align=center class="table-secondary">
 			<td>${ od.onum }</td>
 			<c:if test="${ loginInfo.num == 0 }"><td>${ od.mid }</td></c:if>

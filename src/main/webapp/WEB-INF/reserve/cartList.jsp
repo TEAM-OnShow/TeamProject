@@ -54,9 +54,9 @@
 			</tr>
 		</c:if>
 		<c:if test="${ cart != null }">
-			<c:forEach var="cart" items="${ sessionScope.cartList }">
+			<c:forEach var="cart" items="${ sessionScope.cartList }" varStatus="cartStasus">
 			<tr>
-				<td align=center>${ cart.pnum }</td>
+				<td align=center>${ cartStasus.count }</td>
 				<td align=center>
 					${ cart.pname }
 					<input type="button" onclick="deleteCart(${ cart.pnum },'${ cart.pname }')" class="btn btn-primary btn-sm" value="삭제">
@@ -69,8 +69,10 @@
 		</c:if>
 		<tr>
 			<td colspan="4" align=center>
-				<a class="btn btn-primary" href="javascript:account()">결재하기</a> &nbsp; &nbsp;
-				<a class="btn btn-success" href="userExhibit.ex">추가 주문</a>
+				<c:if test="${ cart != null }">
+					<a class="btn btn-primary" href="javascript:account()">결재하기</a> &nbsp; &nbsp;
+				</c:if>
+				<a class="btn btn-success" href="userExhibit.ex">추가</a>
 			</td>
 			<td align=center><b>총 금액 : <fmt:formatNumber pattern="#,###">${ totalAmount }</fmt:formatNumber> 원</b></td>
 		</tr>

@@ -76,11 +76,12 @@
 </style>
 
 <div class="container">
-	<h3 align=center style="padding:20px 0">주문 상세 내역</h3>
+	<h3 align=center style="padding:20px 0">구매 상세 내역</h3>
 	<table border=1>
 		<tr class="table-success">
 			<td colspan=3>고객 : ${ mb.name }</td>
-			<td colspan=2>주문 번호 : ${ onum }</td>
+			<td>주문 번호 : ${ onum }</td>
+			<td align=center><input class="btn btn-secondary" type="button" value="목록으로" onclick="location.href='order.re'"></td>
 		</tr>
 		<tr class="table-primary">
 			<th>순번</th>

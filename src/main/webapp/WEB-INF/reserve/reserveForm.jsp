@@ -37,12 +37,11 @@
 			}),
 			success : function(data){
 				if($.trim(data) > 0) {
-					//alert("주문 가능");
+					alert("수량은 최대 "+data+"까지 주문 가능합니다.");
 					$("#reserveSubmit").html("<tr><td width='20%'><label for='oqty'>수량 : </label></td><td><input id='oqty' class='form-control' type='number' name='oqty' value=1 max='"+data+"' min='1' required></td></tr><tr><td colspan='2' align='center'><input class='btn btn-primary' type='submit' value='장바구니 추가'></td></tr>");
-					//$("#reserveSubmit").html("수량 :	<input type='number' name='oqty' value=1 max='"+data+"' min='1'><br><br><input type='submit' value='장바구니 추가'>");
 				} else {
 					$("#reserveSubmit").html("");
-					alert("주문 불가능합니다.");
+					alert("주문 불가능합니다. 날짜나 시간을 다시 골라주세요!");
 				}
 			}
 		});
