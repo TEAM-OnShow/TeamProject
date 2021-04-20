@@ -56,7 +56,7 @@
 	
 	<delete id="DeleteData">
 		delete from members
-		where id= #{id}
+		where id= #{id} and id not in 'penguin'
 	</delete>
 	
 	<select id = "YourStyle" resultType = "Integer">

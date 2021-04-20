@@ -45,10 +45,11 @@
 <div class="container">
 <div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>자주묻는질문</b></h5></div>
 <br>
-	<% String [] categories = {"전체", "회원가입", "전시관련", "티켓구매/발권", "취소/환불", "기타"}; %>
+	<% String [] categories = {"회원가입", "전시관련", "티켓구매/발권", "취소/환불", "기타"}; %>
 
 	<!-- Qna 네비게이션 버튼 -->
 	<div class="" align="center">
+		<button type="button" class="btn btn-outline-success mr-2" onclick="location.href='list.qna'">전체</button>	  
 		<c:forEach items="<%=categories%>" var="cats">
 			<button type="button" class="btn btn-outline-success mr-2" onclick="location.href='list.qna?category=${cats}'">${cats}</button>	  
 		</c:forEach>

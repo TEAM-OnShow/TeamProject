@@ -6,16 +6,17 @@
 
 <script type="text/javascript">
 
-	function goUpdate(num){
-		location.href='update.me?num='+num; 
+	function goCheckPw(num){
+		location.href='pwcheck.me?num='+num; 
 		//update.me=> MemberUpdateController
 	}
 </script>
 
+
 <div class="container">
 	<h3 align=center style="padding:20px 0">내정보(마이페이지)</h3>
 
-	<table border="1" frame="void" class="table">
+	<table border="1" class="table">
 		<tr>
 			<th class="table-secondary" width="30%">이름</th>
 			<td>${member.name}</td>
@@ -23,6 +24,10 @@
 		<tr>
 			<th class="table-secondary">아이디</th>
 			<td>${member.id}</td>
+		</tr>
+		<tr>
+			<th class="table-secondary">비밀번호</th>
+			<td>${member.password}</td>
 		</tr>
 		<tr>
 			<th class="table-secondary">나이</th>
@@ -59,7 +64,7 @@
 		</tr>
 		<tr>
 			<td class="table table-primary" align="center" colspan=2>
-				<input class="btn btn-secondary" type="button" value="개인정보 수정" onClick="goUpdate(${loginInfo.num})">
+				<input class="btn btn-secondary" type="button" value="개인정보 수정" onClick="goCheckPw(${loginInfo.num})">
 			</td>
 		</tr>
 	</table>

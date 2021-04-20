@@ -132,7 +132,7 @@
             <a class="dropdown-item" href="loginForm.me">회원정보수정</a>
             </c:when>
             <c:otherwise>
-            <a class="dropdown-item" href="update.me?num=${loginInfo.num}">회원정보수정</a>
+            <a class="dropdown-item" href="pwcheck.me?num=${loginInfo.num}">회원정보수정</a>
             </c:otherwise>
             </c:choose>
 			<a class="dropdown-item" href="order.re">구매내역</a>

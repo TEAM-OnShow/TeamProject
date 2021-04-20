@@ -1,4 +1,4 @@
-4/19 22:30 �ʿ��޸��常 ����  
+4/19 22:30 초원메모장만 수정  
 
 drop sequence mseq;
 create sequence mseq
@@ -11,7 +11,7 @@ nocache;
 drop table members cascade constraints;
 create table members(
 	num number primary key,
-	id varchar2(20) unique,	-- ��ġ���ʰ� �Ͽ� ���� ã�� �� ��� �ʿ�
+	id varchar2(20) unique,	-- 겹치지않게 하여 정보 찾을 때 사용 필요
 	password varchar2(20),
 	repassword varchar2(20),
 	name varchar2(20),
@@ -24,24 +24,47 @@ create table members(
 	hp3 number,
 	add1 varchar2(100),
 	add2 varchar2(100),
-	style varchar2(20), -- ����
-	cat varchar2(20), -- ���� ī�װ���
+	style varchar2(20), -- 취향
+	cat varchar2(20), -- 관심 카테고리
 	age number,
 	gender varchar2(20)
 );
 
 insert into members(num, id, password, name, email)
-values(0, 'penguin', '1234', '���', 'penguin@123');
+values(0, 'penguin', '1234', '펭귄', 'penguin@123');
 
 insert into members(num, id, password, name, email, style, cat, age, gender)
-values(mseq.nextval, 'coco', '1234', '����', 'coco@123', '��������', '����', 19, '����');
+values(mseq.nextval, 'coco', '1234', '코코', 'coco@123', '현대적인', '직업', 19, '여자');
 
 insert into members(num, id, password, name, email, style, cat, age, gender)
-values(mseq.nextval, 'jelly', '1234', '����', 'jelly@123', '�ǿ�����', '�ֿϵ���', 25, '����');
+values(mseq.nextval, 'jelly', '1234', '젤리', 'jelly@123', '실용적인', '애완동물', 25, '남자');
 
 insert into members(num, id, password, name, email, style, cat, age, gender)
-values(mseq.nextval, 'holy', '1234', 'Ȧ��', 'holy@123', '��������ġ��', 'Ƽ', 33, '����');
+values(mseq.nextval, 'holy', '1234', '홀리', 'holy@123', '에너지넘치는', '티', 33, '여자');
 
+insert into members(num, id, password, name, email, style, cat, age, gender)
+values(mseq.nextval, 'justin', '1234', '저스틴', 'justin@123', '현대적인', '직업', 19, '여자');
+
+insert into members(num, id, password, name, email, style, cat, age, gender)
+values(mseq.nextval, 'pop', '1234', '팝팝', 'pop@123', '실용적인', '애완동물', 25, '남자');
+
+insert into members(num, id, password, name, email, style, cat, age, gender)
+values(mseq.nextval, 'gold', '1234', '골드', 'gold@123', '에너지넘치는', '티', 33, '여자');
+
+insert into members(num, id, password, name, email, style, cat, age, gender)
+values(mseq.nextval, 'one', '1234', '하나', 'one@123', '에너지넘치는', '티', 33, '여자');
+
+insert into members(num, id, password, name, email, style, cat, age, gender)
+values(mseq.nextval, 'two', '1234', '두이', 'two@123', '현대적인', '직업', 19, '여자');
+
+insert into members(num, id, password, name, email, style, cat, age, gender)
+values(mseq.nextval, 'three', '1234', '석삼', 'three@123', '실용적인', '애완동물', 25, '남자');
+
+insert into members(num, id, password, name, email, style, cat, age, gender)
+values(mseq.nextval, 'four', '1234', '너구리', 'four@123', '에너지넘치는', '티', 33, '여자');
+
+insert into members(num, id, password, name, email, style, cat, age, gender)
+values(mseq.nextval, 'five', '1234', '오징어', 'five@123', '에너지넘치는', '티', 33, '여자');
 
 col num for 9;
 col id for a8;
@@ -58,7 +81,7 @@ select num, id, password, name, email, style, cat, age, gender from members;
 
 commit;
 
--- cate : ī�װ��� ���̺�
+-- cate : 카테고리 테이블
 drop sequence cate_seq ;
 create sequence cate_seq
 increment by 1
@@ -76,21 +99,21 @@ create table cate(
 );
 
 insert into cate 
-values(cate_seq.nextval,'����','C01');
+values(cate_seq.nextval,'유아','C01');
 insert into cate 
-values(cate_seq.nextval,'å','B01');
+values(cate_seq.nextval,'책','B01');
 insert into cate 
-values(cate_seq.nextval,'�ֿϵ���','P01');
+values(cate_seq.nextval,'애완동물','P01');
 insert into cate 
-values(cate_seq.nextval,'��','F02');
+values(cate_seq.nextval,'꽃','F02');
 insert into cate 
-values(cate_seq.nextval,'����','G01');
+values(cate_seq.nextval,'정원','G01');
 insert into cate 
-values(cate_seq.nextval,'����','J01');
+values(cate_seq.nextval,'직업','J01');
 insert into cate 
-values(cate_seq.nextval,'Ƽ','T02');
+values(cate_seq.nextval,'티','T02');
 
--- exhibition : ����/�ڶ� ���̺�
+-- exhibition : 전시/박람 테이블
 drop sequence ex_seq;
 create sequence ex_seq
 increment by 1
@@ -120,7 +143,7 @@ create table exhibition(
 	contents varchar2(300) not null
 );
 
--- order : �ֹ� ���̺�
+-- order : 주문 테이블
 drop sequence seqorder;
 create sequence seqorder start with 1 increment by 1 nocache ;
 
@@ -132,7 +155,7 @@ create table orders(
   odate date default sysdate 
 );
 
--- orderdetail : �ֹ� �� ���̺�
+-- orderdetail : 주문 상세 테이블
 drop sequence seqodetail;
 create sequence seqodetail start with 1 increment by 1 nocache ;
 
@@ -149,7 +172,7 @@ create table orderdetail(
 
 commit;
 
---�������� ���̺�
+--공지사항 테이블
 drop table notice cascade constraints;
 create table notice(
   no number primary key,
@@ -168,7 +191,7 @@ create sequence notice_seq
   maxvalue 10000
   nocache;
   
---qna ���̺�
+--qna 테이블
 drop table qna cascade constraints;
 create table qna(
   no number primary key,
@@ -186,7 +209,7 @@ create sequence qna_seq
   maxvalue 10000
   nocache;
 
---1:1���� ���̺�
+--1:1문의 테이블
 drop sequence inq_seq;
 create sequence inq_seq
   increment by 1
@@ -209,5 +232,56 @@ ref number,
 restep number default 0,
 ip varchar2(20)
 );
+
+ 
+insert into qna
+values(qna_seq.nextval,'전시관련','전시회 사전등록 방법을 알려주세요.','전시회 사전등록 방법은 참여하시고자 하는 각 전시회 홈페이지를 통해서만 가능합니다. 관련 전시회 홈페이지 주소는 코엑스 홈페이지의 전시일정에서 관련 전시명을 클릭하시면 확인하실 수 있습니다',sysdate);
+
+insert into qna
+values(qna_seq.nextval,'전시관련','공연관람시 주차료는 얼마인지 궁금합니다.','개최사마다 다르니 문의전화로 확인해보시기 바랍니다.',sysdate);
+
+insert into qna
+values(qna_seq.nextval,'기타','온쇼 인턴 및 아르바이트 채용에 대하여 궁금합니다.','아직 채용이 진행중이지 않습니다.
+채용계획이 있을 시 공지사항을 통해 올려드리고 있습니다.',sysdate);
+
+insert into qna
+values(qna_seq.nextval,'회원가입','회원가입은 어떻게 하나요?','우측상단 메뉴에 회원가입 누르시고 진행하시면 됩니다.',sysdate);
+
+insert into qna
+values(qna_seq.nextval,'취소/환불','티켓 취소는 어떻게하나요?','예약 후 24시간 이내 취소를 원하실 경우 onshow 031-813-8711로 전화주시면 안내 도와드리겠습니다.',sysdate);
+
+insert into qna
+values(qna_seq.nextval,'티켓구매/발권','티켓구매는 어떻게하나요?','전시박람 메뉴탭 맨 밑에 이용방법을 확인해주세요',sysdate);
+commit;
+
+
+insert into notice(no,title,content,imp)
+values(notice_seq.nextval,'2022년 온쇼 정시대관 전시장 신청','접수기간 2020년 9월 공고일 ~ 2020년 9월 25일 17:00
+문의사항) 02-6000-1128 / programsuyeon@gmail.com',0);
+  
+insert into notice(no,title,content,imp)
+values(notice_seq.nextval,'전시회 기본방역수칙 개편(2021.03.29)','고객 여러분 안녕하십니까.
+정부는 3월 29일 0시부터 전시회‧박람회 및 국제회의산업에 대한 새로운 기본방역수칙 기준을 발표하였습니다.
+자세한 사항은 첨부된 자료 참고 부탁드리며,
+개별 행사 개최와 관련된 사항은 각 행사 주최사로 문의 바랍니다.
+코엑스는 산업의 조기 정상화와 방역 안전을 위해
+항상 최선의 노력을 다하겠습니다.
+감사합니다.',1);
+
+insert into notice(no,title,content,imp)
+values(notice_seq.nextval,'마스크착용 행정명령 안내','온쇼를 찾아주신 고객 여러분 안녕하십니까.
+정부의 ‘마스크 착용 의무화 행정명령’에 따라
+11월 13일(금) 00시부터 위반시 과태료가 부과됨을 안내드립니다.
+코로나 공존 시대에 마스크는 나와 주변 사람들의 건강을 위한 최고의 백신입니다.
+우리 모두의 안전을 위해 마스크를 반드시 착용 부탁드리겠습니다.
+코엑스는 정부의 방역수칙을 철저히 준수하여
+안전한 행사 개최를 위해 최선의 노력을 다하겠습니다.
+감사합니다.',0);
+
+insert into notice(no,title,content,imp)
+values(notice_seq.nextval,'Eat The Seoul 2021 Winter 푸드트럭 모집 공고','잇더서울 푸드트럭 모집 공고
+1차모집) 2021.10.07 ~ 10.28
+1차발표) 10.30
+현장평가) 11.04~11.05',0);
 
 commit;

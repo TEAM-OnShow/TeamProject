@@ -40,7 +40,7 @@
 		
 		<tr>
 			<td class="table-primary">비번</td>
-			<td><input type="text" name="password"></td>
+			<td><input type="password" name="password"></td>
 		</tr>
 		
 		<tr>
