@@ -169,24 +169,33 @@ $(function(){
 <div class="h-100">
 	<div class="fade-effect scrollNav">
 		<h3 style="margin-left:10%; font-family:'맑은 고딕'">회원님을 위한 <font color="rgb(103,197,162)">추천</font> 프로그램</h3>
-		<p style="margin-left:10%; font-size: 13px" class="pb-3">
+		<p style="margin-left:10%; font-size: 15px" class="pb-3">
 			<c:choose>
-			<c:when test="${sessionScope.loginId==null}">*로그인을 하시면 추천 서비스를 받으실 수 있습니다.</c:when>
-			<c:otherwise>*${sessionScope.loginId}님에게 제공되는 맞춤 서비스 입니다.</c:otherwise>
+			<c:when test="${sessionScope.loginId==null}">
+				<div align="center" class="border-top border-bottom border-secondary mx-auto p-5" style="margin-top:30px">
+				<h1><font color="rgb(103,197,162)">Sorry!</font></h1><br>
+				<h3>로그인을 하시면 추천 서비스를 받으실 수 있습니다.</h3>
+				</div>
+			</c:when>
+			<c:when test="${sessionScope.lists==null || sessionScope.list=='[]'}">
+				<span class="text-danger">현재 회원님의 스타일에 맞는 추천작은 없습니다.</span><br>
+				<h5 align="center" class="border-top border-bottom border-secondary mx-auto p-2 my-4" style="font-family:'맑은 고딕'; color:rgb(103,197,162)">최신 전시 목록 입니다</h5>
+			</c:when>
+			<c:otherwise>${sessionScope.loginId} 님을 위한 맞춤 서비스</c:otherwise>
 			</c:choose>
 		</p>
 		<!-- 추천작품띄우기 -->
 		<div class="row mr-0" style="margin-left:8%;">
 		<c:choose>
 		<c:when test="${sessionScope.lists==null || sessionScope.lists=='[]'}">
-			<div align="center" class="border border-secondary mx-auto p-5" style="margin-top:30px">
-				<h1><font color="rgb(103,197,162)">Sorry!</font></h1><br>
-				<h3>현재 회원님의 스타일과 맞는 추천 프로그램이 없습니다</h3>
-			</div>
+			<c:set value="${sessionScope.clists}" var="setlists" scope="session"/>
 		</c:when>
 		<c:otherwise>
-		<c:forEach items="${sessionScope.lists}" var="exlists">		 
-		  <div class="card ml-4 mr-0 px-0" style="width: 30%">
+			<c:set value="${sessionScope.lists}" var="setlists" scope="session"/>
+		</c:otherwise>
+		</c:choose>
+		<c:forEach items="${setlists}" var="exlists">		 
+		  <div class="card ml-4 mr-0 px-0" style="width: 30%; height:450px;">
 			  <div class="card-header" style="height:35px"></div>
 			  <div class="card-body">
 			   <!-- 전시이름 -->
@@ -219,12 +228,9 @@ $(function(){
 			  </div>
 		 	</div>
 		 </c:forEach>
-		 </c:otherwise>
-		</c:choose>
-		 </div>
+		</div>
 	</div>
 </div>
-
 <!-- footer -->
 <%@ include file="./WEB-INF/common/footer.jsp" %>
 

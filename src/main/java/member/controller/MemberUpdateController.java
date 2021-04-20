@@ -71,21 +71,23 @@ public class MemberUpdateController {
 			if(cnt==1) {
 			System.out.println("업데이트 됐다");
 			List<Integer> styleNum = memberDao.yourStyle(member.getId());
-			
-			if(styleNum==null) {
-				System.out.println("스타일추천 없음");
+			 
+			if(styleNum.size()==0) {
+				System.out.println("스타일x 최신작품3게 띄우기");
+				List<Exhibition> clists = edao.ListExhibition();
+				session.setAttribute("clists", clists);
+				session.setAttribute("lists", null);
 
 			} else {
 				System.out.println("스타일추천?"+ styleNum);
-				
-				 List<Exhibition> lists = new ArrayList<Exhibition>(); 
-				 for(int num : styleNum) {
+				List<Exhibition> lists = new ArrayList<Exhibition>();
+				 for(int num : styleNum){
 					 Exhibition exhibit = edao.DetailExhibition(num); 
 					 lists.add(exhibit);
 					 System.out.println("전시회명: "+exhibit.getName()); 
-				}//for
+				}
 				session.setAttribute("lists", lists);
-			}//style if문
+			}
 			return mav;
 			}//int==1 if문
 			return mav;

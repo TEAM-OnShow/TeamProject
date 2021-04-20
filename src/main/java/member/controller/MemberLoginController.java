@@ -73,17 +73,20 @@ public class MemberLoginController {
 				} else {
 					System.out.println("회원의 아이디는 "+member.getId());
 					List<Integer> styleNum = memberDao.yourStyle(member.getId());
-										
-					if(styleNum==null) {
+					 
+					if(styleNum.size()==0) {
+						System.out.println("스타일x 최신작품3게 띄우기");
+						List<Exhibition> clists = edao.ListExhibition();
+						session.setAttribute("clists", clists);
+						session.setAttribute("lists", null);
 						mav.setViewName("redirect:/user.jsp");
-						System.out.println("스타일추천 없음");
 
 					} else {
 						System.out.println("스타일추천?"+ styleNum);
-						
-						 List<Exhibition> lists = new ArrayList<Exhibition>(); 
+						List<Exhibition> lists = new ArrayList<Exhibition>();
 						 for(int num : styleNum){
-							 Exhibition exhibit = edao.DetailExhibition(num); lists.add(exhibit);
+							 Exhibition exhibit = edao.DetailExhibition(num); 
+							 lists.add(exhibit);
 							 System.out.println("전시회명: "+exhibit.getName()); 
 						}
 						session.setAttribute("lists", lists);

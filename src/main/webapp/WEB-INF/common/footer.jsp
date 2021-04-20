@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-<div style="margin-top: 180px">
+<div style="margin-top: 20%">
 <center>
 <hr>
 <a href="info.com">회사소개</a> | <a href="location.com">찾아오시는 길</a> | <a href="reserve.ex">이용방법</a> | <a href="rule.com">개인정보처리방침</a>
