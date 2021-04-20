@@ -197,7 +197,7 @@ $(function(){
 		<c:forEach items="${setlists}" var="exlists">		 
 		  <div class="card ml-4 mr-0 px-0" style="width: 30%; height:450px;">
 			  <div class="card-header" style="height:35px"></div>
-			  <div class="card-body">
+			  <div class="card-body" style="text-align: center">
 			   <!-- 전시이름 -->
 			    <h5 class="card-title" style="font-family:'맑은 고딕'"><b>${exlists.name}</b></h5>
 			    <!-- 전시날짜 -->
@@ -210,8 +210,8 @@ $(function(){
 			    </h6>
 			  </div>
 			  <!-- 사진 -->
-			  <div class="card-body m-auto p-0 w-100" style="height: 160px">
-			  	<img src="<%=request.getContextPath()%>/resources/${exlists.img}" class="w-100 h-100">
+			  <div class="card-body m-auto p-0 w-100" style="height: 160px; text-align:center">
+			  	<img src="<%=request.getContextPath()%>/resources/${exlists.img}" class="h-100">
 			  </div>
 			  <!-- 전시내용 -->
 			  <div class="card-body">
