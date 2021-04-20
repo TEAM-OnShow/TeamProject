@@ -24,8 +24,8 @@ create table members(
 	hp3 number,
 	add1 varchar2(100),
 	add2 varchar2(100),
-	style varchar2(100), -- 취향 다수 선택 가능
-	cat varchar2(100), -- 관심 카테고리 다수 선택 가능
+	style varchar2(20), -- 취향
+	cat varchar2(20), -- 관심 카테고리
 	age number,
 	gender varchar2(20)
 );
@@ -34,13 +34,13 @@ insert into members(num, id, password, name, email)
 values(0, 'penguin', '1234', '펭귄', 'penguin@123');
 
 insert into members(num, id, password, name, email, style, cat, age, gender)
-values(mseq.nextval, 'coco', '1234', '코코', 'coco@123', 'happy', 'furniture', 1, 'female');
+values(mseq.nextval, 'coco', '1234', '코코', 'coco@123', '현대적인', '직업', 19, '여자');
 
 insert into members(num, id, password, name, email, style, cat, age, gender)
-values(mseq.nextval, 'jelly', '1234', '젤리', 'jelly@123', 'cheerful', 'furniture', 2, 'female');
+values(mseq.nextval, 'jelly', '1234', '젤리', 'jelly@123', '실용적인', '애완동물', 25, '남자');
 
 insert into members(num, id, password, name, email, style, cat, age, gender)
-values(mseq.nextval, 'holy', '1234', '홀리', 'holy@123', 'modern', 'furniture', 3, 'female');
+values(mseq.nextval, 'holy', '1234', '홀리', 'holy@123', '에너지넘치는', '티', 33, '여자');
 
 
 col num for 9;
@@ -185,7 +185,6 @@ create sequence qna_seq
   minvalue 1
   maxvalue 10000
   nocache;
-
 
 --1:1문의 테이블
 drop sequence inq_seq;

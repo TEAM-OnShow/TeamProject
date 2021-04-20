@@ -121,7 +121,7 @@
 		</div>
 		<div class="col navmenues">
 			<a class="dropdown-item" href="userExhibit.ex">전시/박람회 목록</a> 
-			<a class="dropdown-item" href="exhibitPlan.ex?day=<%=day%>">예정 프로그램</a> 
+			<a class="dropdown-item" href="exhibitPlan.ex?day=<%=day%>">전시/박람 예정목록</a> 
 			<a class="dropdown-item" href="reserve.ex">예약방법</a>
 		</div>
 		<div class="col navmenues">

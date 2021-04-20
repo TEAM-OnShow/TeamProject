@@ -119,14 +119,14 @@
 			</td>
 		</tr>
 		<tr>
-			<td>행사컬러(복수선택可)</td>
+			<td>전시/박람 스타일</td>
 			<td>
-				<input type="checkbox" name="style" value="현대적인"> 현대적인&nbsp;
-				<input type="checkbox" name="style" value="예술적인"> 예술적인&nbsp;
-				<input type="checkbox" name="style" value="감각적인"> 감각적인&nbsp;
-				<input type="checkbox" name="style" value="실용적인"> 실용적인&nbsp;
-				<input type="checkbox" name="style" value="에너지넘치는"> 에너지넘치는&nbsp;
-				<input type="checkbox" name="style" value="감성적인"> 감성적인&nbsp;
+				<input type="radio" name="style" value="현대적인"> 현대적인&nbsp;
+				<input type="radio" name="style" value="예술적인"> 예술적인&nbsp;
+				<input type="radio" name="style" value="감각적인"> 감각적인&nbsp;
+				<input type="radio" name="style" value="실용적인"> 실용적인&nbsp;
+				<input type="radio" name="style" value="에너지넘치는"> 에너지넘치는&nbsp;
+				<input type="radio" name="style" value="감성적인"> 감성적인&nbsp;
 			</td>
 		</tr>
 		<tr>

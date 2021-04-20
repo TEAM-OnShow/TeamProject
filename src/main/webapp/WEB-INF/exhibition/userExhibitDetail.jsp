@@ -57,7 +57,7 @@
 	</tr>		
 	<tr class="table-primary" align="right">
 		<td colspan="3">
-			<input type="button" class="btn btn-secondary" value="목록보기" onClick="history.go(-1)"> 
+			<input type="button" class="btn btn-secondary" value="이전" onClick="history.go(-1)"> 
 			<input type="button" class="btn btn-secondary" value="예약하기" onClick="location.href='add.re?num=${exhibit.num}'"> 
 			<!-- 로그인 안했을경우 로그인화면으로 이동...  -->
 		</td>

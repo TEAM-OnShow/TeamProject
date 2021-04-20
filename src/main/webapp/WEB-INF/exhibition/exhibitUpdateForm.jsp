@@ -130,10 +130,10 @@
 			</td>
 		</tr>
 		<tr>
-			<td>행사컬러(복수선택可)</td>
+			<td>전시/박람 스타일</td>
 			<td>
 				<c:forEach var="style" items="<%=style %>">  
-					<input type="checkbox" name="style" value="${style}" <c:if test="${fn:contains(exhibition.style,style)}"> checked </c:if>> ${style }
+					<input type="radio" name="style" value="${style}" <c:if test="${fn:contains(exhibition.style,style)}"> checked </c:if>> ${style }
 				</c:forEach>	
 			</td>
 		</tr>

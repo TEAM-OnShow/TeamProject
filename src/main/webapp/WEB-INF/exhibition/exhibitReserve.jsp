@@ -7,8 +7,8 @@
 <table align="center">
 	<tr>
 		<td>
-			<img src="resources/image/reserve/new.png" width="800px" height="400px"/><br> 
-			&nbsp;<p><b>① 전시/박람목록 보기</b></p>
+			<img src="resources/image/reserve/new3.png" width="800px" height="400px"/><br>   
+			&nbsp;<p><b>① 전시/박람목록 보기</b></p>  
 		</td>
 	</tr>
 	 

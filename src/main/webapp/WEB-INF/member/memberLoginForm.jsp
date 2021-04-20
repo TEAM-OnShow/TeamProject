@@ -35,12 +35,12 @@
 	<table border="1" class="table table-secondary" style="width:auto;margin: 0 auto;">
 		<tr>
 			<td class="table-primary">아이디</td>
-			<td><input type="text" name="id" value="coco"></td>
+			<td><input type="text" name="id"></td>
 		</tr>
 		
 		<tr>
 			<td class="table-primary">비번</td>
-			<td><input type="text" name="password" value="1234"></td>
+			<td><input type="text" name="password"></td>
 		</tr>
 		
 		<tr>
