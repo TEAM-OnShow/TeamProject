@@ -32,8 +32,7 @@
 	%>
 
 <div class="container">
-<h2 class="mt-4">1:1문의</h2>
-<hr><br>
+<div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>1:1문의</b></h5></div><br>
 	<form:form commandName="inq" method="post" action="update.inq">
 		<input type="hidden" name="pageNumber" value="${pageNumber}">
 		<input type="hidden" name="num" value="${inq.num}">

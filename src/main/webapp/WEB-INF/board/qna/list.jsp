@@ -43,8 +43,8 @@
 	%>
 
 <div class="container">
-<h2 class="mt-4">자주묻는질문</h2>
-<hr><br>
+<div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>자주묻는질문</b></h5></div>
+<br>
 	<% String [] categories = {"전체", "회원가입", "전시관련", "티켓구매/발권", "취소/환불", "기타"}; %>
 
 	<!-- Qna 네비게이션 버튼 -->

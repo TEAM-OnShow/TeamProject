@@ -33,8 +33,7 @@
 	%>
 
 <div class="container">
-<h2 class="mt-4">1:1문의</h2>
-<hr><br>
+<div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>1:1문의</b></h5></div><br>
 	<form:form commandName="inq" method="post" action="inqwrite.inq">
 	
 		<div class="mb-3 row brd-bottom">

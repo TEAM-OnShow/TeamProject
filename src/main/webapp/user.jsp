@@ -184,7 +184,7 @@ $(function(){
 			</c:when>
 			<c:otherwise>
 				<span class="text-success">${sessionScope.loginId} 님을 위한 맞춤 서비스</span><br>
-				<h5 align="center" class="border-top border-bottom border-secondary mx-auto p-2 my-4" style="font-family:'맑은 고딕'; font-weight:bold; color:rgb(103,197,162)">당신의 키워드 '${sessionScope.loginStyle}'</h5>
+				<h5 align="center" class="border-top border-bottom border-secondary mx-auto p-2 my-4" style="font-family:'맑은 고딕'; font-weight:bold;">당신의 키워드 '${sessionScope.loginStyle}'</h5>
 			</c:otherwise>
 			</c:choose>
 		</p>

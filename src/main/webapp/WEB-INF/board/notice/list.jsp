@@ -20,9 +20,8 @@
 	%>
 
 <div class="container">
-<h2 class="mt-4">공지사항</h2>
-<hr>
-	<table class="table mt-4">
+<div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>공지사항</b></h5></div>
+	<table class="table">
 	    <tr class="text-center">
 	      <th>번호</th>
 	      <th class="w-50">제목</th>

@@ -21,8 +21,7 @@
 	%>
 
 <div class="container">
-<h2 class="mt-4">1:1문의</h2>
-<hr><br>
+<div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>1:1문의</b></h5></div><br>
 	<form action="list.inq">
 	<div class="input-group input-group-sm mb-3 p-3 border bg-light mx-auto" style="width: 35%">
 		<select class="form-select mr-2" name="whatColumn">

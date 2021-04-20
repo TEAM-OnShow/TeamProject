@@ -9,8 +9,8 @@
 </style>
 
 <div class="container">
-<h2 class="mt-4">공지사항</h2>
-<hr>
+<div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>공지사항</b></h5></div>
+<br>	
 	<form:form commandName="notice" action="update.nt" method="post">
 		<input type="hidden" name="pageNumber" value="${pageNumber}">
 		<input type="hidden" name="no" value="${notice.no}">

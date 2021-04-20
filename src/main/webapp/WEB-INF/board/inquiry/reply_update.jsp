@@ -3,8 +3,7 @@
 <%@ include file="../../common/admin.jsp" %>
 
 <div class="container">
-<h2 class="mt-4">1:1문의</h2>
-<hr><br>
+<div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>1:1문의</b></h5></div><br>
 	
 	<form action="update.inq" method="post">
 	<input type="hidden" name="pageNumber" value="${pageNumber}">

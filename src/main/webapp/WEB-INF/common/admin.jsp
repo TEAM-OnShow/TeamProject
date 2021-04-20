@@ -43,7 +43,7 @@
 </div>
 
 <!-- onshow 로고 -->
-<div class="w-100 row m-0 h-25">
+<div class="w-100 row m-0" style="height:160px;">
 	<div class="col"></div>
 	<div class="col-5 d-flex justify-content-center">
 		<a href="user.jsp"><img src="resources/image/onshow.png" width="300px"></a>

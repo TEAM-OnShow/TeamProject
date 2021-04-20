@@ -21,9 +21,7 @@
 	%>
 
 <div class="container">
-<h2 class="mt-4">공지사항</h2>
-<hr>
-	
+<div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>공지사항</b></h5></div>
 	<div class="row border-bottom border-top mx-1 mt-4">
 		<div class="col bg-light text-center py-2"><b>제목</b></div>
 		<div class="col-10 border-left py-2">${notice.title}</div>

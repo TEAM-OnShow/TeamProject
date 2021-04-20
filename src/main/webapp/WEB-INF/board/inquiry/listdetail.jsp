@@ -32,8 +32,7 @@
 		}
 	</script>
 	
-	<h2 class="mt-4">1:1문의</h2>
-	<hr><br>
+	<div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>1:1문의</b></h5></div><br>
 	
 	<c:choose>
 		<c:when test="${inq.restep==0}"><c:set value="질문" var="h5"/></c:when>
