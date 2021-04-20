@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../../common/admin.jsp" %>
-<!DOCTYPE html>
-<html>
 <style type="text/css">
 	.err{
 		color: red;
@@ -10,12 +8,7 @@
 	}
 </style>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-</head>
-
-<body class="container">
+<div class="container">
 <h2 class="mt-4">자주묻는질문</h2>
 <hr>
 	<form:form commandName="qna" action="insert.qna" method="post">
@@ -48,7 +41,5 @@
 			<button type="submit" class="btn btn-secondary" onClick="location.href='insert.qna'">등록하기</button>
 		</p>
 	</form:form>
-</body>
-</body>
-</html>
+</div>
 <%@ include file="../../../WEB-INF/common/footer.jsp" %>

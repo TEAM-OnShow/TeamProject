@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
 		<%
 		String loginId = (String) session.getAttribute("loginId");
 		if(loginId == null) {
@@ -24,9 +18,8 @@
 		   }
 		}
 	%>
-</head>
 
-<body class="container">
+<div class="container">
 	<!-- 상세게시글 보기 전 비밀번호 입력 -->
 	<script type="text/javascript">
 	var loginId = '<%=session.getAttribute("loginId")%>'
@@ -101,6 +94,5 @@
 			<button type="button" class="btn btn-outline-primary btn-lg" onClick="location.href='reply.inq?num=${inq.num}&ref=${inq.ref}&restep=${inq.restep}&pageNumber=${pageNumber}'">답변등록</button>
 	   	</center>
 	</c:if>
-</body>
-</html>
+</div>
 <%@ include file="../../../WEB-INF/common/footer.jsp" %>

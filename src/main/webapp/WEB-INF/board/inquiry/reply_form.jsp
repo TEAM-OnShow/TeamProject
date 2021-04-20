@@ -1,15 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../../common/admin.jsp" %>
-<!DOCTYPE html>
-<html>
 
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-
-<body class="container">
+<div class="container">
 <h2 class="mt-4">1:1문의</h2>
 <hr><br>
 
@@ -51,6 +44,5 @@
 		<textarea class="form-control mt-3" rows="15" name="content" placeholder="답변 내용을 입력해주세요" required></textarea>
 		<p align="center"><input class="btn btn-primary btn-lg rounded-0 mt-3" type="submit" value="답변등록"></p>
 	</form>
-</body>
-</html>
+</div>
 <%@ include file="../../../WEB-INF/common/footer.jsp" %>

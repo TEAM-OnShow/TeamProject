@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	
 	<style type="text/css">
 		.brd-bottom{
 		 	border-bottom: 1px solid;
@@ -36,9 +30,8 @@
 		   }
 		}
 	%>
-</head>
 
-<body class="container">
+<div class="container">
 <h2 class="mt-4">1:1문의</h2>
 <hr><br>
 	<form:form commandName="inq" method="post" action="update.inq">
@@ -101,7 +94,5 @@
 		<button type="submit" class="btn btn-secondary">수정하기</button>
 		</p>
 	</form:form>
-</body>
-
-</html>
+</div>
 <%@ include file="../../../WEB-INF/common/footer.jsp" %>

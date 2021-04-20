@@ -1,11 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
 		<%
 		String loginId = (String) session.getAttribute("loginId");
 		if(loginId == null) {
@@ -24,9 +18,8 @@
 		   }
 		}
 	%>
-</head>
 
-<body class="container">
+<div class="container">
 	<c:choose>
 		<c:when test="${sessionScope.loginId=='penguin'}">
 			<div class="border-bottom border-secondary mt-5 pb-2"><h5 class="text-primary"><b>관리자 답글내역</b></h5></div>
@@ -62,6 +55,5 @@
 	
 	<br>
 	<ul class="pagination justify-content-center">${pageInfo.pagingHtml}</ul>
-</body>
-</html>
+</div>
 <%@ include file="../../../WEB-INF/common/footer.jsp" %>

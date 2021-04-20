@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../../common/admin.jsp" %>
-<!DOCTYPE html>
-<html>
 <style type="text/css">
 	.err{
 		color: red;
@@ -10,12 +8,7 @@
 	}
 </style>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-</head>
-
-<body class="container">
+<div class="container">
 <h2 class="mt-4">공지사항</h2>
 <hr>
 	<form:form commandName="notice" action="write.nt" method="post">
@@ -44,6 +37,5 @@
 		
 		<button type="submit" class="btn btn-secondary btn-sm">등록하기</button>
 	</form:form>
-</body>
-</html>
+</div>
 <%@ include file="../../../WEB-INF/common/footer.jsp" %>

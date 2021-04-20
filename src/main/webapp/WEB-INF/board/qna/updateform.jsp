@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../../common/admin.jsp" %>
-<!DOCTYPE html>
-<html>
+
 <style type="text/css">
 	.nav-border{
 		height: 45px; font-weight: bold; padding-top: 10px;
@@ -15,12 +14,7 @@
 	}
 </style>
 
-<head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-</head>
-
-<body class="container">
+<div class="container">
 <h2 class="mt-4">자주묻는질문</h2>
 <hr><br>
 	<% String [] categories = {"전체", "회원가입", "전시관련", "티켓구매/발권", "취소/환불", "기타"}; %>
@@ -108,7 +102,5 @@
 	<div>
 	  <ul class="pagination justify-content-center">${pageInfo.pagingHtml}</ul>
 	</div>
-</body>
-
-</html>
+</div>
 <%@ include file="../../../WEB-INF/common/footer.jsp" %>
