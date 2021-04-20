@@ -23,7 +23,7 @@
 <div class="mb-2 border-bottom border-light" style="height: 40px">
 	<div style="position: absolute; top:10px; right:30px">
 		<c:if test="${sessionScope.loginId == 'penguin'}">
-		<a class="top-a" href="main.jsp">관리자홈</a>
+		<a class="top-a" href="user.jsp">사용자홈</a>
 		</c:if>
 		<c:if test="${sessionScope.loginId != 'penguin'}">
 		<a class="top-a" href="user.jsp">홈</a>

@@ -1,3 +1,6 @@
+<%@page import="exhibition.model.ExhibitionDao"%>
+<%@page import="exhibition.model.Exhibition"%>
+<%@page import="java.util.List"%>
 <%@page import="member.model.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -91,10 +94,10 @@ $(function(){
 	});	
 });
 </script>	
-  
+
 <!-- 사진슬라이드 -->
 <div align="center" class="mainNav">	
-    <div id="carousel-example-generic" class="carousel slide mt-5" style="height:480px; width:100%;">	
+    <div id="carousel-example-generic" class="carousel slide mt-5" style="height:530px; width:100%;">	
       <ol class="carousel-indicators" style="display:relative; top:420px">		
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>	
         <li data-target="#carousel-example-generic" data-slide-to="1"></li>	
@@ -105,7 +108,7 @@ $(function(){
       <div class="carousel-inner" role="listbox">	
         <!-- 이미지의 개수만큼 item을 만든다. 중요한 포인트는 carousel-indicators의 li 태그 개수와 item의 개수는 일치해야 한다. -->	
         <div class="item active">	
-          <img src="resources/image/1.png" style="height:480px; width:80%;">
+          <img src="resources/image/1.png" style="height:530px; width:80%;">
           <div class="carousel-caption topcap text-primary">	
           	<h4><b>Tango w. cow</b></h4>
           	<h5>2021.04.30~5.16</h5>
@@ -116,7 +119,7 @@ $(function(){
         </div>
         	
         <div class="item">	
-          <img src="resources/image/2.png" style="height:480px; width:80%;">	
+          <img src="resources/image/2.png" style="height:530px; width:80%;">	
           <div class="carousel-caption topcap text-primary">	
          	<h4><b>Your Art Here</b></h4>
           	<h5>2021.05.25~6.10</h5>
@@ -127,7 +130,7 @@ $(function(){
         </div>
         
         <div class="item">	
-          <img src="resources/image/3.png" style="height:480px; width:80%;">	
+          <img src="resources/image/3.png" style="height:530px; width:80%;">	
           <div class="carousel-caption topcap text-primary">	
          	<h4><b>Pacific Arts</b></h4>
           	<h5>2021.07.10~7.21</h5>
@@ -138,7 +141,7 @@ $(function(){
         </div>
         
         <div class="item">	
-          <img src="resources/image/4.png" style="height:480px; width:80%;">	
+          <img src="resources/image/4.png" style="height:530px; width:80%;">	
           <div class="carousel-caption topcap text-primary">	
          	<h4><b>Asian Museum</b></h4>
           	<h5>2021.08.03~08.16</h5>
@@ -168,26 +171,29 @@ $(function(){
 <!-- 디자인:스크롤,fadein 기능:추천전시작품 -->
 <div class="h-100">
 	<div class="fade-effect scrollNav">
-		<h3 style="margin-left:10%; font-family:'맑은 고딕'">회원님을 위한 <font color="rgb(103,197,162)">추천</font> 프로그램</h3>
+		<h3 style="margin-left:10%; font-family:'맑은 고딕'">회원님을 위한 <span class="text-success">추천</span> 프로그램</h3>
 		<p style="margin-left:10%; font-size: 15px" class="pb-3">
 			<c:choose>
 			<c:when test="${sessionScope.loginId==null}">
-				<div align="center" class="border-top border-bottom border-secondary mx-auto p-5" style="margin-top:30px">
-				<h1><font color="rgb(103,197,162)">Sorry!</font></h1><br>
-				<h3>로그인을 하시면 추천 서비스를 받으실 수 있습니다.</h3>
-				</div>
+				<span class="text-danger">회원가입을 하시면 다양한 추천서비스를 받으실 수 있습니다</span><br>
+				<h5 align="center" class="border-top border-bottom border-secondary mx-auto p-2 my-4" style="font-family:'맑은 고딕'; color:rgb(103,197,162)">회원가입으로 다양한 추천서비스를 즐기세요!</h5>
 			</c:when>
 			<c:when test="${sessionScope.lists==null || sessionScope.list=='[]'}">
 				<span class="text-danger">현재 회원님의 스타일에 맞는 추천작은 없습니다.</span><br>
 				<h5 align="center" class="border-top border-bottom border-secondary mx-auto p-2 my-4" style="font-family:'맑은 고딕'; color:rgb(103,197,162)">최신 전시 목록 입니다</h5>
 			</c:when>
-			<c:otherwise>${sessionScope.loginId} 님을 위한 맞춤 서비스</c:otherwise>
+			<c:otherwise>
+				<span class="text-success">${sessionScope.loginId} 님을 위한 맞춤 서비스</span><br>
+				<h5 align="center" class="border-top border-bottom border-secondary mx-auto p-2 my-4" style="font-family:'맑은 고딕'; font-weight:bold; color:rgb(103,197,162)">당신의 키워드 '${sessionScope.loginStyle}'</h5>
+			</c:otherwise>
 			</c:choose>
 		</p>
+
 		<!-- 추천작품띄우기 -->
 		<div class="row mr-0" style="margin-left:8%;">
 		<c:choose>
-		<c:when test="${sessionScope.lists==null || sessionScope.lists=='[]'}">
+		
+		<c:when test="${sessionScope.loginId==null || sessionScope.lists==null || sessionScope.lists=='[]'}">
 			<c:set value="${sessionScope.clists}" var="setlists" scope="session"/>
 		</c:when>
 		<c:otherwise>

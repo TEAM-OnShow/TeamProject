@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -31,7 +33,7 @@
 		margin-right: 30px;
 	}
 </style>
-
+  
 <!-- 홈페이지 상단 바 -->
 <div class="mb-2 border-bottom border-light" style="height: 40px">
 	<div style="position: absolute; top:10px; right:30px">

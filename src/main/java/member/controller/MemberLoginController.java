@@ -66,6 +66,7 @@ public class MemberLoginController {
 			if(password.equals(member.getPassword()) ) {// id, pw일치
 				session.setAttribute("loginInfo", member);
 				session.setAttribute("loginId", member.getId());
+				session.setAttribute("loginStyle", member.getStyle());
 				
 				if(session.getAttribute("loginId").equals("penguin")) {
 					mav.setViewName("redirect:/main.jsp");
@@ -75,7 +76,7 @@ public class MemberLoginController {
 					List<Integer> styleNum = memberDao.yourStyle(member.getId());
 					 
 					if(styleNum.size()==0) {
-						System.out.println("스타일x 최신작품3게 띄우기");
+						System.out.println("스타일x 최신작품3개 띄우기");
 						List<Exhibition> clists = edao.ListExhibition();
 						session.setAttribute("clists", clists);
 						session.setAttribute("lists", null);
