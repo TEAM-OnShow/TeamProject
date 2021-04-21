@@ -61,6 +61,8 @@ public class MemberUpdateController {
 		
 		if(result.hasErrors()) {
 			System.out.println("유효성 검사 오류");
+			List<Cate> list = cdao.ListCate();
+			mav.addObject("list", list);
 			mav.setViewName(getPage);
 			return mav;
 		}else {

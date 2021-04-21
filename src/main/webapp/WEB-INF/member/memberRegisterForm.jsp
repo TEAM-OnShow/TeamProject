@@ -55,7 +55,7 @@ function duplicate(){
 			}
 			else{
 				
-				$('#idmessage').html("<font color=red>이미 사용중인 아이디입니다.</font>");
+				$('#idmessage').html("<font color=red>사용 불가능합니다.</font>");
 				$('#idmessage').show();
 				use = "impossible";
 				isCheck = false;
