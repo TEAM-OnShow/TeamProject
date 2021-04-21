@@ -82,21 +82,19 @@ function writeSave(){
 				<td>
 					<select name="year" class="form-control w20">
 						<c:forEach begin="1910" end="2021" var="y">
-							<option value="${ y }"
-							<c:if test="${y==1990}"> selected</c:if>
-							>${y}
+							<option value="${ y }" <c:if test="${y==member.year}"> selected</c:if>>${y}
 						</c:forEach>
 					</select>년 
 					
 					<select name="month" class="form-control w20">
 						<c:forEach begin="1" end="12" var="m">
-							<option value="${ m }"> ${ m }
+							<option value="${ m }" <c:if test="${m==member.month}"> selected</c:if>  > ${ m }
 						</c:forEach>
 					</select>월 
 					
 					<select name="day" class="form-control w20">
 						<c:forEach begin="1" end="31" var="d">
-							<option value="${ d }"> ${ d }
+							<option value="${ d }" <c:if test="${d==member.day}"> selected</c:if>> ${ d }
 						</c:forEach>
 					</select>일
 					<form:errors cssClass="err" path="year"/>

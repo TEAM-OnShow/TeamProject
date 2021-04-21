@@ -72,6 +72,7 @@ public class MemberUpdateController {
 			System.out.println("업데이트 됐다");
 			List<Integer> styleNum = memberDao.yourStyle(member.getId());
 			session.setAttribute("loginStyle", member.getStyle());
+			session.setAttribute("loginInfo", member);
 			
 			if(styleNum.size()==0) {
 				System.out.println("스타일x 최신작품3게 띄우기");
